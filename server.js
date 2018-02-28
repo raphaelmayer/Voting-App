@@ -33,7 +33,6 @@ passport.use(new GithubStrategy({
 	},
 	function(req, accessToken, refreshToken, profile, cb) {
 		console.log("accessToken: " + accessToken)
-		console.log(req)
 		db.collection("users").update(	{ githubId: profile.id }, 
 										{ githubId: profile.id, 
 										  username: profile.username, 
@@ -42,7 +41,7 @@ passport.use(new GithubStrategy({
 										  createdAt: new Date().toString() }, 
 									  	{ upsert: true }, (err, user) => {
 			if(err) {throw err}
-			return cb(null, user);
+			return cb(null, profile);
 		})
 	}));
 
@@ -50,7 +49,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true }));
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false, cookie: {maxAge: 500000} }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -74,7 +73,7 @@ console.log("xxxxxxxxxxxxx req.session xxxxxxxxxxxxxx")
 console.log(req.session)
 console.log("req.sessionID: " + req.sessionID)
 console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-    res.send(req.session.passport.user);
+    res.redirect("http://localhost:3000");
   });
 
 
@@ -90,6 +89,9 @@ console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 	app.get('/mypolls',  (req, res) => {
 console.log("xxxxxxxxxxxxx req.session xxxxxxxxxxxxxx")
 console.log(req.session)
+console.log("xxxxxxxxxxxxxxxxxxx req.user xxxxxxxxxxxxxxxxxxxxxxxxx")
+console.log(req.user)
+console.log("req.sessionID: " + req.sessionID)
 		let mypolls ;
 		//let creator = activeUser
 		db.collection("polls").find({creator: 'Anonymous'}).toArray((err, result) => {
