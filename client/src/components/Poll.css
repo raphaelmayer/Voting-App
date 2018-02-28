@@ -1,0 +1,16 @@
+.poll {
+	background: lightblue;
+	height: 40vh;
+	position: relative;
+}
+.choices {
+	border: 2px solid #eee;
+	margin: 0 auto;
+	width: 20%;
+}
+.choice {
+	border-bottom: 1px solid #eee;
+	display: table;
+	margin: 0 auto;
+	padding: 5px;
+}

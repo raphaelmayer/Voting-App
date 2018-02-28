@@ -1,0 +1,65 @@
+.newPoll {
+	background: lightblue;
+	height: 40vh;
+}
+input.question, input.answer {
+	border-radius: 5px;
+	margin: 1px auto;
+	transition: all 0.3s ease-in-out;
+}
+input:hover {
+	box-shadow: inset 0px 0px 10px 10px #eee;
+}
+.question {
+	border: 2px solid #eee9de;
+	font-size: 1rem;
+	font-family: raleway;
+	padding: 8px 30px;
+	text-align: center;
+	width: 20%;
+}
+.answers {
+	margin: 10px;
+}
+.answerBox {
+	padding: 2px;
+}
+.answer {
+	border: 2px solid #e9eefe;
+	font-family: raleway;
+	display: inline;
+	padding: 8px 20px;
+}
+.answer:hover {
+	/*box-shadow: inset 0px 0px 10px 10px #eee;	in input / input:hover*/
+}
+.delete {
+	background: #ff7a7f;
+	border: 1px solid #ff7a7f;
+	border-radius: 50%;
+	color: white;
+	display: inline;
+	font-size: 1em;
+	font-weight: 600;
+	padding: 2px 7px;
+	transition: all 0.5s ease;
+}
+.delete:hover {
+	animation: delSpin 0.4s ease;
+	background: #ff4a4f;
+	border: 1px solid white;
+}
+@keyframes delSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.success {
+	background: rgb(100, 100, 100, 0.8 );
+	color: white;
+	box-shadow: 0px 0px 10px 1px black;
+	position: fixed;
+	height: 40%;
+	width: 80vw;
+	margin: 0% 10%;
+}

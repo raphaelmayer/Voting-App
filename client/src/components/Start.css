@@ -1,0 +1,8 @@
+.start {
+  	background: lightblue;
+	height: 40vh;
+}
+.startBox {
+	position: relative;
+	top: 30%;
+}

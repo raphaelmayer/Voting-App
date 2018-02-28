@@ -26,3 +26,53 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+nav {
+  height: 6vh;
+}
+.navBtn {
+  background: rgb(200, 200, 200, 0.5);
+   border: 2px solid white;
+  border-radius: 4px;
+  display: inline;
+  float: right;
+  font-size: 18px;
+  margin: 2px 2px;
+  padding: 10px 20px;
+  transition: all 0.5s ease;
+}
+.navBtn:hover {
+  border: 2px solid rgb(123, 30, 500, 0.7);
+  opacity: 1;
+}
+h1 {
+  margin: 0;
+  padding: 20px;
+}
+button {
+  background: white;
+  border: 1px solid lightgreen;
+  border-radius: 4px;
+  font-family: raleway;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 5px;
+  padding: 5px 10px;
+  transition: all 0.3s ease-out;
+}
+button:hover {
+  background: lightgreen;
+  border: 1px solid white;
+  color: white;
+}
+.back {
+  position: absolute;
+  top: 27%;
+  left: 1%;
+}
+h1 {
+  font-family: open sans;
+}
+a {
+  text-decoration: none;
+}

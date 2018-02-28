@@ -4,7 +4,7 @@ const express = require('express');
 const mongodb = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
 const passport = require('passport');
-const GithubStrategy = require('passport-github2').Strategy;
+const Strategy = require('passport-github2').Strategy;
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
@@ -25,7 +25,7 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 
-passport.use(new GithubStrategy({
+passport.use(new Strategy({
 	clientID: process.env.GITHUB_KEY,
 	clientSecret: process.env.GITHUB_SECRET,
 	callbackURL: 'http://localhost:5000/auth/github/callback',
@@ -42,7 +42,7 @@ passport.use(new GithubStrategy({
 										  createdAt: new Date().toString() }, 
 									  	{ upsert: true }, (err, user) => {
 			if(err) {throw err}
-			return cb(null, user);
+			return cb(null, profile);
 		})
 	}));
 
