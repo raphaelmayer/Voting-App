@@ -10,12 +10,20 @@ class MyPolls extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch('/mypolls')
-      .then(res => res.json())
-      .then(mypolls => this.setState({mypolls}, () => console.log('My polls fetched...', mypolls)));
-  }
+  componentWillMount() {
+    if(this.props.authData.fbId) {
+      fetch('/mypolls/' + this.props.authData.fbId) //
+        .then(res => res.json())
+        .then(mypolls => this.setState({mypolls}, () => console.log('My polls fetched...', mypolls)));
+      }   
+    }
+    
   render() {
+    {if(!this.props.authData.isAuth) {
+      return (
+        <h1>You need to be logged in to view this page!</h1>
+        )
+    }}
     return (
       <div className="myPolls"><Link to="/"><button className="back" type="button">back</button></Link>
         <h1>My Polls</h1>

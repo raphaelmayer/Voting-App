@@ -37,42 +37,52 @@ class NewPoll extends Component {
   }
   handleChange(event) {}
 
+componentDidMount() {
+  console.log(this.props.authData)
+}
   handleSubmit(event) {
     event.preventDefault();
-    let name ;
-    let arr = []
-    var i = event.target.length -4
-    console.log(event.target[0].value)
-    for( let j = 1; j <= i; j++ ) {
-      console.log((i-(i-j)));
-      arr.push(event.target[(i-(i-j))].value)
-      j++;
+    if(!this.props.authData.fbId) {alert("You need to be logged in to submit new polls!")}
+    else {
+      let creator = { name: this.props.authData.username, fbId: this.props.authData.fbId } ;
+      let arr = []
+      var i = event.target.length -4
+      console.log(event.target[0].value)
+      for( let j = 1; j <= i; j++ ) {
+        console.log((i-(i-j)));
+        arr.push(event.target[(i-(i-j))].value)
+        j++;
+      }
+      console.log(arr);
+
+      fetch("/newpolls", {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          creator: this.props.authData.username,
+          fbId: this.props.authData.fbId,
+          question: event.target[0].value,
+          answers: arr,
+        })
+      }).then(this.handleSuccess)
+
     }
-    console.log(arr);
-
-    fetch("/newpolls", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        creator: name || "Anonymous",
-        question: event.target[0].value,
-        answers: arr,
-      })
-    }).then(this.handleSuccess)
-
-  }
+  } 
 
   handleSuccess(res) {
       console.log(res)
       if( res.status === 200) { 
-        window.location.href = '/my/success';  }
-      else { alert("Error when posting poll to backend!")}
+        window.location.href = res.url }
+      else { 
+        alert("Error when posting poll to backend!")}
     }
 
-  render() { 
+  render() {
+    
+
     const answers = this.state.answers.map((x, i) =>  <div className="answerBox" key={i}>
                                                         <input className="answer"
                                                                type="text"

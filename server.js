@@ -3,11 +3,12 @@ require('dotenv').config();
 const express = require('express');
 const mongodb = require('mongodb');
 const ObjectId = require('mongodb').ObjectId;
-const passport = require('passport');
-const GithubStrategy = require('passport-github2').Strategy;
-const session = require('express-session');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser')
+
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 mongodb.MongoClient.connect(process.env.DB_KEY, (err, client) => {
@@ -15,66 +16,6 @@ mongodb.MongoClient.connect(process.env.DB_KEY, (err, client) => {
 	else { console.log("Connection to database established!") };
 	
 	var db = client.db("votinappdb");
-
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
-
-
-passport.use(new GithubStrategy({
-	clientID: process.env.GITHUB_KEY,
-	clientSecret: process.env.GITHUB_SECRET,
-	callbackURL: 'http://localhost:5000/auth/github/callback',
-	passReqToCallback: true
-	},
-	function(req, accessToken, refreshToken, profile, cb) {
-		console.log("accessToken: " + accessToken)
-		db.collection("users").update(	{ githubId: profile.id }, 
-										{ githubId: profile.id, 
-										  username: profile.username, 
-										  name: profile.displayName,
-										  accessToken: accessToken, 
-										  createdAt: new Date().toString() }, 
-									  	{ upsert: true }, (err, user) => {
-			if(err) {throw err}
-			return cb(null, profile);
-		})
-	}));
-
-const app = express();
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false, cookie: {maxAge: 500000} }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-
-	
-app.get('/auth/github',
-  passport.authenticate('github', { scope: [ 'user:email' ] }),
-  function(req, res){
-    // function will not be called.
-  });
-
-app.get('/auth/github/callback', 		//console.log(req.query)(req.user)(req.session)(req.sessionID)
-  passport.authenticate('github', { failureRedirect: '/login' }),
-  function(req, res) {  	
-  	let url = "https://github.com/login/oauth/access_token?client_id=" + process.env.GITHUB_KEY +
-              "?client_secret=" + process.env.GITHUB_SECRET + 
-              "?code=" + req.body.code;
-//console.log(req.query)
-console.log("xxxxxxxxxxxxx req.session xxxxxxxxxxxxxx")
-console.log(req.session)
-console.log("req.sessionID: " + req.sessionID)
-console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-    res.redirect("http://localhost:3000");
-  });
 
 
 	app.get('/poll/:input', (req, res) => {
@@ -86,15 +27,12 @@ console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 		})
 	});
 
-	app.get('/mypolls',  (req, res) => {
-console.log("xxxxxxxxxxxxx req.session xxxxxxxxxxxxxx")
-console.log(req.session)
-console.log("xxxxxxxxxxxxxxxxxxx req.user xxxxxxxxxxxxxxxxxxxxxxxxx")
-console.log(req.user)
-console.log("req.sessionID: " + req.sessionID)
+	app.get('/mypolls/:input',  (req, res) => {
+		let fbId = req.params.input; //you have to go to /my loggedIn or fbId = null
 		let mypolls ;
+		console.log(fbId)
 		//let creator = activeUser
-		db.collection("polls").find({creator: 'Anonymous'}).toArray((err, result) => {
+		db.collection("polls").find({fbId: fbId}).toArray((err, result) => {
 			mypolls = result;
 	  		res.json(mypolls);
 		})
@@ -112,12 +50,13 @@ console.log("req.sessionID: " + req.sessionID)
 			doc.votes.push(0)
 		}
 		
-		console.log(doc)
+		let insertedDoc;
 		db.collection("polls").insert(doc, (err, response) => {
 			if(err) throw err;
+			insertedDoc = response.ops[0]._id.toString();
 			console.log("Inserted new document " + JSON.stringify(response.ops[0]._id));
+			res.redirect('/poll/' + insertedDoc)
 		});
-		res.end("newDoc")	
 	})
 
 	app.get('/search', (req, res) => {
@@ -133,6 +72,21 @@ console.log("req.sessionID: " + req.sessionID)
 		res.end("nice")
 	})
 	
+	app.post('/facebookAuth', (req, res) => {
+		//console.log(req.body)
+		let doc = {
+			name: req.body.userData.name,
+			fbId: req.body.userData.id,
+			createdAt: new Date().toString()
+		}
+		db.collection("users").update(	{ fbId: doc.fbId },
+										{ name: doc.name,
+										  email: "doc.email", 
+										  createdAt: new Date().toString() }, 
+									  	{ upsert: true } );
+		//console.log(doc)
+		res.end()
+	})
 
 	app.listen(5000, () => {console.log("Listening on 5000 . . . ")});
 })
