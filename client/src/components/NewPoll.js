@@ -92,7 +92,7 @@ componentDidMount() {
                                                         <button className="delete" name={i} type="button" key={i} onClick={this.handleDelete} tabIndex="-1">X</button>
                                                       </div> );
     return (
-      <div className="newPoll"><Link to="/"><button className="back" type="button">back</button></Link>
+      <div className="main"><Link to="/"><button className="back btn" type="button">back</button></Link>
         <h1>Create a new Poll</h1>
         <form onSubmit={this.handleSubmit}>
           <input className="question" type="text" name="question" placeholder="What's your favorite color?"/>
@@ -101,8 +101,8 @@ componentDidMount() {
             {answers}
           </div>
           
-          <button type="submit" value="Submit">Submit</button>
-          <button type="button" onClick={this.handleAddAnswer}>add answer</button>
+          <button className="btn" type="submit" value="Submit">Submit</button>
+          <button className="btn" type="button" onClick={this.handleAddAnswer}>add answer</button>
         </form>
       
       </div>

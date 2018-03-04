@@ -10,11 +10,11 @@ class Start extends Component {
 
   render() {
     return (
-        <div className="start">
+        <div className="main">
           <div className="startBox">
             <h1>What do you want to do?</h1>
-            <Link to="/new"><button type="button">New Poll</button></Link>
-            <Link to="/my"><button>My Polls</button></Link>
+            <Link to="/new"><button className="btn" type="button">New Poll</button></Link>
+            <Link to="/my"><button className="btn">My Polls</button></Link>
           </div>
         </div>
     );

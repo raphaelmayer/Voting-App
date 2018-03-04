@@ -1,21 +1,38 @@
-.poll {
-	background: lightblue;
-	height: 40vh;
+.center-container {
+	background: #eee;
+	border-radius: 4px;
+	box-shadow: 0px 0px 20px 1px #777;
+	height: 74%;
+	margin: 0 auto;
 	position: relative;
+	width: 46%;
 }
 .choices {
-	border: 2px solid #eee;
-	margin: 0 auto;
-	width: 20%;
+	float: left;
+	margin: 6px 4px;
+	width: 49%;
 }
 .choice {
+	border-radius: 2px;
+	background: white;
 	border-bottom: 1px solid #eee;
 	display: table;
-	margin: 0 auto;
 	padding: 5px;
+	width: 98%;
 }
 .chartContainer {
-	position: absolute;
-	width: 30%;
+	float: right;
+	width: 49%;
+}
+#myChart {
+	margin-top: 16px;
+}
+.desc {
+	background: white;
+	border-radius: 2px;
 	height: 30%;
+	margin: 5px;
+	position: absolute;
+	bottom: 0%;
+	width: 99%;
 }

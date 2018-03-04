@@ -5,10 +5,7 @@ import './App.css';
 import NewPoll from './components/NewPoll';
 import Start from './components/Start';
 import MyPolls from './components/MyPolls';
-import Success from './components/Success';
-import loginSuccess from './components/loginSuccess';
 import Poll from './components/Poll';
-import Customers from './components/customers';
 import FacebookLoginButton from './components/FacebookLoginButton';
 
 
@@ -41,17 +38,18 @@ class App extends Component {
       <div className="App">
         
         <nav>
+          <Link to="/"><div className="logo"><i className="fa fa-users faLogo"></i>YouVote</div></Link>
+          <ul className="nav-ul"><Link to="/"><li className="nav-li">Home</li></Link><Link to="/my"><li className="nav-li">My Polls</li></Link><Link to="/about"><li className="nav-li">About</li></Link></ul>
           { !username &&
               <div>
                 <FacebookLoginButton onLogin={this.onFacebookLogin}>
-                  <button className="navBtn">Continue with Facebook</button>
+                  <button className="login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text">Continue with Facebook</div></button>
                 </FacebookLoginButton>
               </div>
           }{ username &&
-              <p className="navBtn">Welcome back, {username}</p>
+              <p className="welcome">Welcome back, {username}</p>
            }
-<div className="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
-
+{/*<div className="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>*/}
         </nav>
         
         <header className="App-header">

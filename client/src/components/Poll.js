@@ -84,30 +84,30 @@ console.log(this.state.poll)
 
   render() {
     return (
-      <div className="poll"><Link to="/"><button className="back" type="button">back</button></Link>
-        
-        <div className="chartContainer">
-          <canvas id="myChart"></canvas>
-        </div>
-
+      <div className="main"><Link to="/"><button className="back btn" type="button">back</button></Link>
         <h1>{this.state.poll.question}</h1><h4 className="creator">{this.state.poll.creator}' Poll</h4>
-        <div className="choices">
-          <form onSubmit={this.handleSubmit}>
-              {this.state.poll.answers.map(x => {
-                              return  <div className="choice">
-                                        <label><input type="radio" name="choice"/>{x}</label>
-                                      </div>
-                            }
-                )}
-              <br/>  
-              <button type="submit">Submit</button>
-              <button className="" type="button" onClick={this.handleAddAnswer}>add option</button>
-          </form>
+        
+        <div className="center-container">
+          <div className="choices">
+            <form onSubmit={this.handleSubmit}>
+                {this.state.poll.answers.map(x => {
+                                return  <div className="choice">
+                                          <label><input type="radio" name="choice"/>{x}</label>
+                                        </div>
+                              }
+                  )}
+                <br/>  
+                <button className="btn" type="submit">Submit</button>
+                <button className="btn" type="button" onClick={this.handleAddAnswer}>add option</button>
+            </form>
+          </div>
+
+          <div className="chartContainer">
+            <canvas id="myChart"></canvas>
+          </div>
+          <div className="desc">Author, Stimmen gesamt, date created</div>
         </div>
-        
-        
-        <Link to="/new"><button type="button">New Poll</button></Link>
-        
+        <Link to="/new"><button className="btn" type="button">New Poll</button></Link>
       </div>
     );
   }

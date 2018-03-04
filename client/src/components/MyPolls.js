@@ -48,7 +48,7 @@ class MyPolls extends Component {
         )
     }}
     return (
-      <div className="myPolls"><Link to="/"><button className="back" type="button">back</button></Link>
+      <div className="main"><Link to="/"><button className="back btn" type="button">back</button></Link>
         <h1>My Polls</h1>
         
         <div className="polls">
@@ -65,7 +65,7 @@ class MyPolls extends Component {
         )}
         </div>
 
-      <Link to="/new"><button type="button">New Poll</button></Link>
+      <Link to="/new"><button className="btn" type="button">New Poll</button></Link>
       </div>
     );
   }
