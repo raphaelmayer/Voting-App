@@ -1,6 +1,8 @@
 # Voting App
 
-A NodeJS App that allows users to view polls, create polls, and vote on them. The app uses React for the front-end, express on the back-end, MongoDB for the database, and Facebook's SDK for authentication.
+A NodeJS App that allows users to view polls, create polls, and vote on them. 
+
+The app uses React for the front-end, express on the back-end, MongoDB for the database, and Facebook's SDK for authentication.
 
 You can view the live demo here: tbd
 
