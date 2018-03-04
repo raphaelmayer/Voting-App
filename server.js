@@ -66,10 +66,9 @@ mongodb.MongoClient.connect(process.env.DB_KEY, (err, client) => {
 	app.post('/vote', (req, res) => {
 		console.log("updating votes . . . ")
 		let doc = req.body;
-		console.log(doc._id)		
-		db.collection("polls").update({ _id: new ObjectId(doc._id) }, {$set: {votes: doc.votes}}, {upsert: true})
-		.then(res => console.log(res.result))
-		res.end("nice")
+		console.log(doc._id)													//todo: update voters aswell
+		db.collection("polls").update({ _id: new ObjectId(doc._id) }, {$set: {votes: doc.votes, answers: doc.answers}}, {upsert: true})
+		res.redirect('/poll/' + doc._id)
 	})
 	
 	app.post('/facebookAuth', (req, res) => {
@@ -88,6 +87,16 @@ mongodb.MongoClient.connect(process.env.DB_KEY, (err, client) => {
 		res.end()
 	})
 
+	app.post('/delete', (req, res) => {
+		let pollId = req.body.pollId;
+		console.log(pollId)
+		db.collection("polls").remove({ _id: new ObjectId(pollId) })
+		.then(res => console.log("poll removed successfully"))
+		res.end()
+	})
+
+
 	app.listen(5000, () => {console.log("Listening on 5000 . . . ")});
+
 })
 

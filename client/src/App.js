@@ -62,7 +62,7 @@ class App extends Component {
         <Route exact path="/" component={Start} />
         <Route path="/new" render={props => <NewPoll authData={this.state} {...props} />} />
         <Route path="/my" render={props => <MyPolls authData={this.state} {...props} />} />
-        <Route path="/poll/:input" component={Poll} />
+        <Route path="/poll/:input" render={props => <Poll authData={this.state} {...props} />} />
       </div>
       </Router>
     );

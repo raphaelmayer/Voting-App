@@ -43,6 +43,7 @@ input:hover {
 	font-weight: 600;
 	padding: 2px 7px;
 	transition: all 0.5s ease;
+	width: 26px;
 }
 .delete:hover {
 	animation: delSpin 0.4s ease;

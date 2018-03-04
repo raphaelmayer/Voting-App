@@ -89,7 +89,7 @@ componentDidMount() {
                                                                name={i}
                                                                placeholder={x}
                                                                onChange={this.handleChange}/>
-                                                        <button className="delete" name={i} type="button" key={i} onClick={this.handleDelete}>X</button>
+                                                        <button className="delete" name={i} type="button" key={i} onClick={this.handleDelete} tabIndex="-1">X</button>
                                                       </div> );
     return (
       <div className="newPoll"><Link to="/"><button className="back" type="button">back</button></Link>

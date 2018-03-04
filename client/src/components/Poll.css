@@ -14,3 +14,8 @@
 	margin: 0 auto;
 	padding: 5px;
 }
+.chartContainer {
+	position: absolute;
+	width: 30%;
+	height: 30%;
+}
