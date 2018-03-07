@@ -19,8 +19,8 @@ You can view the live demo here: tbd
 Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build-a-voting-app
 
 todo
-*chart colors if >6
-*logout button
-*mongodb find projection
-*style(fonts, buttons, colors)
-*users can only vote once per poll
+* chart colors if >6
+* logout button
+* mongodb find projection
+* style(fonts, buttons, colors)
+* users can only vote once per poll
