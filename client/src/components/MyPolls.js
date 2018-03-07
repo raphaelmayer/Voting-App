@@ -8,7 +8,6 @@ class MyPolls extends Component {
     this.state = {
       mypolls: []
     };
-
     this.handleDelete = this.handleDelete.bind(this)
   }
 
@@ -43,29 +42,27 @@ class MyPolls extends Component {
     
   render() {
     {if(!this.props.authData.isAuth) {
-      return (
-        <h1>You need to be logged in to view this page!</h1>
-        )
+      return (<h1 className="main">You need to be logged in to view this page!</h1>)
     }}
     return (
-      <div className="main"><Link to="/"><button className="back btn" type="button">back</button></Link>
+      <div className="main">
         <h1>My Polls</h1>
         
         <div className="polls">
         {this.state.mypolls.map(mypolls => 
           <div key={mypolls.id}>
-            <a href={"http://localhost:3000/poll/" + mypolls._id} className="pollBox">
+            <Link to={"./poll/" + mypolls._id} className="pollBox">
               <div className="myPollContent pollQuestion"> {mypolls.question} </div>
               {/*<div className="myPollContent"> {mypolls._id} </div>*/}
-              <div className="myPollContent pollVotes"> {mypolls.votes.reduce((pv, cv) => pv+cv, 0)} </div>
-              <div className="myPollContent creator"> {mypolls.creator} </div>
-            </a>
+              <div className="myPollContent pollVotes"> {mypolls.votes.reduce((pv, cv) => pv+cv, 0)} votes</div>
+              <div className="myPollContent creator"> {mypolls.creator.split(" ")[0]} </div>
+            </Link>
             <button className="delete" onClick={this.handleDelete} key={mypolls.id}>X</button>
           </div>
         )}
         </div>
 
-      <Link to="/new"><button className="btn" type="button">New Poll</button></Link>
+      <br/><Link to="/new"><button className="btn" type="button">New Poll</button></Link>
       </div>
     );
   }

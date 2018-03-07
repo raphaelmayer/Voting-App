@@ -1,7 +1,7 @@
 input.question, input.answer {
 	border-radius: 5px;
 	margin: 1px auto;
-	transition: all 0.3s ease-in-out;
+	transition: all 0.2s ease;
 }
 input:hover {
 	box-shadow: inset 0px 0px 10px 10px #eee;
@@ -25,6 +25,7 @@ input:hover {
 	font-family: raleway;
 	display: inline;
 	padding: 8px 20px;
+	width: 10%;
 }
 .answer:hover {
 	/*box-shadow: inset 0px 0px 10px 10px #eee;	in input / input:hover*/

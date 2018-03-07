@@ -2,37 +2,16 @@
 .App {
   text-align: center;
 }
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-.App-title {
-  font-size: 1.5em;
-}
-.App-intro {
-  font-size: large;
-}
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 
 nav {
-  height: 80px;
+  height: 76px;
 }
 .faLogo {
   color: orange;
 }
 .logo {
   color: lightgreen;
-  text-shadow: 0px 0px 1px #444;
+  text-shadow: 0px 0px 2px green;
   float: left;
   font-family: 'Lato';
   font-size: 34px;
@@ -91,16 +70,63 @@ nav {
 }
 .nav-li:hover {
   border-left: 1px solid black;
-  color: black;
 }
+
+.tbd {
+  background: linear-gradient(#667, #323);
+  color: white;
+  font-family: lato;
+  font-size: 1.2em;
+  height: 24px;
+  letter-spacing: 1px;
+  padding: 6px 50px;
+  text-align: left;
+}
+
 .main {
-  background: lightblue;
-  height: 500px;
+  background: linear-gradient(rgb(255, 255, 245, 1), white);
+  min-height: 570px;
+  padding-top: 50px;
   position: relative;
 }
+
+.header {
+  background-color: #eee9de;
+}
+
+
+  .guide-container {
+    /*border: 2px solid black;*/
+    display: inline-flex;
+    height: 90%;
+    padding: 0px 14%;
+    text-align: left;
+  }
+  .guide-box {
+    /*border: 2px solid black;*/
+    margin: 0 auto;
+    padding: 30px 20px;
+    width: 18%;
+  }
+  .guide-title {
+    font-weight: 600;
+    margin-left: 20px;
+  }
+  .guide-text {
+    font-size: 15px;
+  }
+
+
+.footer {
+  background: linear-gradient(#eee, silver);
+  padding: 10px 20px;
+}
+
+
 h1 {
+  font-family: raleway;
   margin: 0;
-  padding: 20px;
+  padding: 15px;
 }
 .btn {
   background: white;
@@ -150,9 +176,12 @@ h1 {
   to { transform: rotate(360deg); }
 }
 
-h1 {
-  font-family: open sans;
-}
 a {
+  color: black;
   text-decoration: none;
+  transition: all 0.2s ease;
+}
+a:hover {
+  color: white;
+  text-shadow: 0px 0px 1px #555;
 }

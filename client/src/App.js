@@ -7,6 +7,8 @@ import Start from './components/Start';
 import MyPolls from './components/MyPolls';
 import Poll from './components/Poll';
 import FacebookLoginButton from './components/FacebookLoginButton';
+import Explore from './components/Explore';
+
 
 
 
@@ -47,20 +49,32 @@ class App extends Component {
                 </FacebookLoginButton>
               </div>
           }{ username &&
-              <p className="welcome">Welcome back, {username}</p>
+              <p className="welcome">Welcome back, {username.split(" ")[0]}. <button type="button">Logout</button></p>
            }
 {/*<div className="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>*/}
         </nav>
         
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">React Express Starter</h1>
+        <div className="tbd">Amazing! Nice! W. O. W. !.</div>
+        
+        <header className="header">
+        <div className="guide-container">
+          <div className="guide-box"><div className="guide-title">1. Log in</div><div className="guide-text">Log in with one click via Facebook. We do not use cookies and do not save your personal data.</div></div>
+          <div className="guide-box"><div className="guide-title">2. Create your Poll</div><div className="guide-text">Fill out the form. You can add & remove answers however you like. Click submit to continue.</div></div>
+          <div className="guide-box"><div className="guide-title">3. Share Link</div><div className="guide-text">You will get a Link in return. This link will redirect to your poll. Share it with your friends!</div></div>
+          <div className="guide-box"><div className="guide-title">4. Get results</div><div className="guide-text">Your results will be displayed with a chart, for easy evaluating.</div></div>
+        </div>
         </header>
 
         <Route exact path="/" component={Start} />
         <Route path="/new" render={props => <NewPoll authData={this.state} {...props} />} />
         <Route path="/my" render={props => <MyPolls authData={this.state} {...props} />} />
         <Route path="/poll/:input" render={props => <Poll authData={this.state} {...props} />} />
+
+        <div className="footer">
+          <div>2018 - YouVote - A Voting-App by Raphael Mayer</div>
+          <br/>
+          <a href="http://github.com/attiimaster/voting-app" target="_blank"><i className="fab fa-github"></i> YouVote on Github</a>
+        </div>
       </div>
       </Router>
     );

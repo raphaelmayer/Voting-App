@@ -17,3 +17,10 @@ You can view the live demo here: tbd
 * As an authenticated user, if I don't like the options on a poll, I can create a new option.
 
 Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build-a-voting-app
+
+todo
+-chart colors if >6
+-logout button
+-mongodb find projection
+-style(fonts, buttons, colors)
+-users can only vote once per poll

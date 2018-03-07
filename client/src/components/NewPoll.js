@@ -44,7 +44,6 @@ componentDidMount() {
     event.preventDefault();
     if(!this.props.authData.fbId) {alert("You need to be logged in to submit new polls!")}
     else {
-      let creator = { name: this.props.authData.username, fbId: this.props.authData.fbId } ;
       let arr = []
       var i = event.target.length -4
       console.log(event.target[0].value)
@@ -92,7 +91,7 @@ componentDidMount() {
                                                         <button className="delete" name={i} type="button" key={i} onClick={this.handleDelete} tabIndex="-1">X</button>
                                                       </div> );
     return (
-      <div className="main"><Link to="/"><button className="back btn" type="button">back</button></Link>
+      <div className="main">
         <h1>Create a new Poll</h1>
         <form onSubmit={this.handleSubmit}>
           <input className="question" type="text" name="question" placeholder="What's your favorite color?"/>

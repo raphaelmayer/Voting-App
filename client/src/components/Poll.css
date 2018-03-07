@@ -1,38 +1,43 @@
 .center-container {
-	background: #eee;
-	border-radius: 4px;
-	box-shadow: 0px 0px 20px 1px #777;
-	height: 74%;
-	margin: 0 auto;
+	box-shadow: 0px 0px 10px 1px #999;
+	background: #d8ecf3;
+	display: inline-flex;
+	margin: 10px auto;
+	padding: 16px;
 	position: relative;
-	width: 46%;
+	width: 900px;
 }
 .choices {
-	float: left;
-	margin: 6px 4px;
 	width: 49%;
 }
 .choice {
-	border-radius: 2px;
+	border-radius: 4px;
 	background: white;
 	border-bottom: 1px solid #eee;
 	display: table;
+	letter-spacing: 1px;
 	padding: 5px;
-	width: 98%;
+	width: 92%;
 }
 .chartContainer {
-	float: right;
+	position: relative;
 	width: 49%;
 }
-#myChart {
-	margin-top: 16px;
-}
 .desc {
-	background: white;
 	border-radius: 2px;
-	height: 30%;
+	box-shadow: 0px 0px 10px 1px #999;
+	background: #d8ecf3;
+	margin: 10px auto;
+	padding: 5px 5px;
+	position: relative;
+	text-align: center;
+	width: 900px;
+}
+.poll-link {
+	background: white;
+	border: 1px solid #555;
+	border-radius: 2px;
+	display: inline-block;
 	margin: 5px;
-	position: absolute;
-	bottom: 0%;
-	width: 99%;
+	padding: 2px 6px;
 }

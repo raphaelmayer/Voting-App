@@ -2,10 +2,9 @@
 	height: 60%;
 }
 .pollBox {
-	background: rgb(500,500,500,0.9);
-	border-top: 1px solid #e5effe;
+	background: white;
+	order-top: 1px solid #e5effe;
 	border-bottom: 1px solid #e5effe;
-	box-shadow: inset 0px 0px 10px 1px silver;
 	display: inline-block;
 	font-family: raleway;
 	padding: 7px 0px 3px 0px;
