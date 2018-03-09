@@ -28,12 +28,18 @@ class Poll extends Component {
         let data = {
           datasets: [{
               data: poll.votes,
-              backgroundColor: [ 'rgba(255, 99, 132, 0.8)',
-                                 'rgba(54, 162, 235, 0.8)',
-                                 'rgba(255, 206, 86, 0.8)',
+              backgroundColor: [ 'rgba(54, 162, 235, 0.8)',
+                                 'rgba(255, 99, 132, 0.8)',
+                                 'rgba(82, 206, 105, 0.8)',
                                  'rgba(255, 159, 64, 0.8)',
                                  'rgba(153, 102, 255, 0.8)',
-                                 'rgba(75, 192, 192, 0.8)' ]}],
+                                 'rgba(193, 255, 140, 0.8)',
+                                 'rgba(75, 192, 192, 0.8)',
+                                 'rgba(255, 206, 86, 0.8)',
+                                 'rgba(237, 149, 210, 0.8)',
+                                 'rgba(192, 104, 255, 0.8)',
+                                 'rgba(196, 238, 255, 0.8)', ],
+              strokeColor: 'rgba(255, 255, 255, 0.5)'}],
           labels: poll.answers,
         };
 

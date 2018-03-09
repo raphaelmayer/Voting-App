@@ -20,7 +20,13 @@ class MyPolls extends Component {
     }
 
   handleDelete(event) {
-    let pollId = event.target.previousSibling.attributes.href.value.slice(27)
+    event.preventDefault()
+    let pollId = event.target.parentElement.parentElement.attributes.href.nodeValue.slice(7)
+    console.log(pollId)
+
+    console.log(this.props.authData.fbId)
+    console.log(this.state.mypolls[7]._id)
+    console.log(this.state.mypolls.length)
 
     for(let i=0;i<this.state.mypolls.length;i++) {  //to remove poll from state
       if(this.state.mypolls[i]._id === pollId && this.props.authData.isAuth && this.props.authData.fbId === this.state.mypolls[i].fbId) {    //find poll in state
@@ -36,7 +42,7 @@ class MyPolls extends Component {
           },
           body: JSON.stringify({pollId: pollId})
         })        
-      } else alert("Error! You do not seem to be the creator of this poll!")
+      } //else alert("Error! You do not seem to be the creator of this poll!")
     }    
   }
     
@@ -50,15 +56,17 @@ class MyPolls extends Component {
         
         <div className="polls">
         {this.state.mypolls.map(mypolls => 
-          <div key={mypolls.id}>
-            <Link to={"./poll/" + mypolls._id} className="pollBox">
-              <div className="myPollContent pollQuestion"> {mypolls.question} </div>
-              {/*<div className="myPollContent"> {mypolls._id} </div>*/}
-              <div className="myPollContent pollVotes"> {mypolls.votes.reduce((pv, cv) => pv+cv, 0)} votes</div>
-              <div className="myPollContent creator"> {mypolls.creator.split(" ")[0]} </div>
-            </Link>
-            <button className="delete" onClick={this.handleDelete} key={mypolls.id}>X</button>
-          </div>
+
+            <Link to={"./poll/" + mypolls._id} key={mypolls.id}>
+              <div className="search-results-box">
+                <div className="search-results-question">{mypolls.question} 
+                  <div className="search-results-votes">{mypolls.votes.reduce((pv, cv) => pv+cv, 0)}</div>
+                </div>
+                <div className="search-results-creator">Asked by {mypolls.creator.split(" ")[0]}</div>
+              <button className="delete2" onClick={this.handleDelete} key={mypolls.id}>X</button></div>
+              </Link>
+            
+
         )}
         </div>
 

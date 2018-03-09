@@ -8,7 +8,8 @@ class NewPoll extends Component {
     super();
     this.state = {
       question: "",
-      answers: ["red", "blue", "yellow", "green"]
+      placeH: [ "red", "blue", "yellow", "green" ],
+      answers: [ "red", "blue", "yellow", "green" ],
       /*answer1: "red", 
       answer2: "blue", 
       answer3: "yellow",
@@ -24,18 +25,30 @@ class NewPoll extends Component {
 
   handleAddAnswer(event) {
     this.setState({
-      answers: [...this.state.answers, " . . . "]
+      placeH: [...this.state.placeH, " . . . "]
     })
   }
   handleDelete(event) {
     let i = event.target.name;
+    console.log("I: " + i)
     let arr = this.state.answers.slice();
+    console.log(arr)
     arr.splice(i, 1);
     this.setState({answers: arr});
-    console.log(arr)
     console.log(this.state.answers)
   }
-  handleChange(event) {}
+  handleChange(event) { //not in use for now
+    let i = event.target.attributes.name.value;
+    console.log("i: " + i)
+    let input = event.target.value;
+    console.log("input: " + input)
+    let arr = this.state.answers.slice();
+    arr[i] = event.target.value;
+    console.log(arr)
+    this.setState({
+      answers: arr
+    })
+  }
 
 componentDidMount() {
   console.log(this.props.authData)
@@ -82,7 +95,7 @@ componentDidMount() {
   render() {
     
 
-    const answers = this.state.answers.map((x, i) =>  <div className="answerBox" key={i}>
+    const placeH = this.state.answers.map((x, i) =>  <div className="answerBox" key={i}>
                                                         <input className="answer"
                                                                type="text"
                                                                name={i}
@@ -96,8 +109,8 @@ componentDidMount() {
         <form onSubmit={this.handleSubmit}>
           <input className="question" type="text" name="question" placeholder="What's your favorite color?"/>
           
-          <div className="answers">
-            {answers}
+          <div className="placeH">
+            {placeH}
           </div>
           
           <button className="btn" type="submit" value="Submit">Submit</button>

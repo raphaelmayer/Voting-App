@@ -6,7 +6,7 @@ The app uses React for the front-end, express on the back-end, MongoDB for the d
 
 You can view the live demo here: tbd
 
-### The Web App Does the Following:
+### User Stories:
 * As an authenticated user, I can keep my polls and come back later to access them.
 * As an authenticated user, I can share my polls with my friends.
 * As an authenticated user, I can see the aggregate results of my polls.
@@ -18,9 +18,17 @@ You can view the live demo here: tbd
 
 Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build-a-voting-app
 
-todo
-* chart colors if >6
-* logout button
-* mongodb find projection
-* style(fonts, buttons, colors)
+### todo:
+* no chart colors if poll.answers > 12
+* bug: logout-button
+* bug: newpoll input.answers delete
+* bug: inserts new user on every login
+* design(fonts, buttons, colors)
+
+### eventually todo:
+* mongodb .find() projection
 * users can only vote once per poll
+* add tags to polls for a better search feature
+* code revision and clean up
+* maybe render chart after vote?
+

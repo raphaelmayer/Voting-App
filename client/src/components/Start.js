@@ -20,17 +20,19 @@ class Start extends Component {
   handleSearch(event) {
     event.preventDefault()
     let input = event.target[0].value
-    console.log(input)
+    //console.log(input)
+    this.setState({searchTerm: input})
     fetch("/search/" + input)        
         .then(res => res.json())
         .then(polls => this.setState({polls}, () => {
           console.log('Polls fetched . . .', polls);
-          document.getElementById("search-results-container").setAttribute("style", "display: inline-block;")
+          document.getElementById("search-results-container").setAttribute("style", "display: block;")
         }));
   }
 
   render() {
     const polls = this.state.polls;
+    const searchTerm = this.state.searchTerm;
     
     return (
         <div className="main">
@@ -39,15 +41,16 @@ class Start extends Component {
             <p>If you are not logged in you can still view and vote on polls from others.</p>
           </div>
           
-          <div>
-            <form className="search-bar" onSubmit={this.handleSearch}>
+          <div className="search-bar-container">
+            <form className="search-bar-form" onSubmit={this.handleSearch}>
               <input className="search-bar-input" type="text" placeholder="search for polls . . . "/>
               <button className="btn" type="submit">Search</button>
-            </form>OR
+            </form>
             <Link to="/new"><button className="btn" type="button">New Poll</button></Link>
           </div>
 
           <div className="search-results-container" id="search-results-container">
+          <h2>{polls.length} Search results for <u>{searchTerm}</u>:</h2> 
             {polls.map(polls => 
               <Link to={"./poll/" + polls._id}>
               <div className="search-results-box">

@@ -20,7 +20,7 @@ export default class FacebookLogin extends Component {
     this.FB.getLoginStatus(this.facebookLoginHandler);
   }
 
-  //Check login status and call login api is user is not logged in
+  //Check login status and call login api if user is not logged in
   facebookLogin = () => {
     if (!this.FB) return;
     this.FB.getLoginStatus(response => {
@@ -50,7 +50,7 @@ export default class FacebookLogin extends Component {
         userData
       })
     })
-        console.log(result)
+        console.log("onLogin = true")
         this.props.onLogin(true, result);
       });
     } else {
@@ -58,7 +58,7 @@ export default class FacebookLogin extends Component {
     }
   }
 
-  //Or log user out
+  //Or log user out ==> in app.js for now
   facebookLogout = () => {
     this.FB.getLoginStatus(res => {
       if(res.status === 'connected') {
