@@ -23,9 +23,9 @@ Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build
 * bug: newpoll input.answers delete
 * about
 * rename header and its classes in about component
-* chart colors if poll.answers > 12
 * design(fonts, buttons, colors)
 * code revision and clean up
+* chart colors if poll.answers > 12
 
 ### maybe todo:
 * mongodb .find() projection
