@@ -5,93 +5,98 @@
 
 nav {
   height: 76px;
-}
-.faLogo {
-  color: orange;
-}
-.logo {
-  color: lightgreen;
-  text-shadow: 0px 0px 2px green;
-  float: left;
-  font-family: 'Lato';
-  font-size: 34px;
-  font-weight: 900;
-  margin: 18px 30px;
-}
-
-.right-side {
-  display: inline-flex;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.login-button {
-  background: #3b5998;
-  border: 2px solid white;
-  border-radius: 6px;
-  color: white;
-  display: inline;
-  float: right;
-  font-size: 16px;
-  margin: 18px 30px;
-  opacity: 0.9;
-  padding: 7px 10px;
-  transition: all 0.3s ease;
-}
-.login-button:hover {
-  background: #3b5998;
-  border: 2px solid white;
-  opacity: 1;
-}
-.fa-facebook-square {
-  font-size: 26px;
-  margin-right: 14px;
-  float: left;
-}
-.fb-button-text {
-  display: inline;
-  float: right;
-  margin: 2px 0px;
-}
-.welcome {
-  font-size: 18px;
-  margin: 30px 20px;
-}
-
-.nav-ul {
-  margin: 30px 30px 30px 20px;
- }
-.nav-li {
-  border-left: 1px solid #eee;
-  color: #666;
-  display: inline;
-  font-family: raleway;
-  font-size: 16px;
-  letter-spacing: 2px;
-  margin: auto 0;
-  padding: 10px 14px;
-  transition: all 0.5s ease;
-}
-.nav-li:hover {
-  border-left: 1px solid black;
-  text-shadow: 0px 0px 1px #555;
-}
+  }
+  .faLogo {
+    color: orange;
+  }
+  .logo {
+    color: lightblue;
+    font-family: 'raleway';
+    font-size: 40px;
+    font-weight: 900;
+    margin: 18px 30px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    text-shadow: 0px 0px 2px #555;
+  }
+  
+  .right-side {
+    display: inline-flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+    .login-button {
+      background: #3b5998;
+      border: 2px solid white;
+      border-radius: 6px;
+      color: white;
+      display: inline;
+      float: right;
+      font-size: 16px;
+      margin: 18px 30px;
+      opacity: 0.9;
+      padding: 7px 10px;
+      transition: all 0.3s ease;
+    }
+    .login-button:hover {
+      background: #3b5998;
+      border: 2px solid white;
+      opacity: 1;
+    }
+    .fa-facebook-square {
+      font-size: 26px;
+      margin-right: 14px;
+      float: left;
+    }
+    .fb-button-text {
+      display: inline;
+      float: right;
+      margin: 2px 0px;
+    }
+    .welcome {
+      font-size: 18px;
+      margin: 30px 20px;
+    }
+    
+    .nav-ul {
+      margin: 30px 30px 30px 20px;
+     }
+    .nav-li {
+      border-left: 2px solid #eee;
+      color: #666;
+      display: inline;
+      font-family: raleway;
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin: auto 0;
+      margin-left: 4px;
+      padding: 10px 14px;
+      transition: all 0.5s ease;
+    }
+    .nav-li:hover {
+      border-left: 2px solid rgb(242, 145, 2, .3);
+      text-shadow: 0px 0px 1px #555;
+    }
 
 .tbd {
   background: linear-gradient(#667, #323);
   color: white;
   font-family: lato;
   font-size: 1.2em;
-  height: 24px;
   letter-spacing: 1px;
-  padding: 6px 40px;
+  padding: 6px 0px;
   text-align: center;
-  position: relative;
-  width: 100%;
 }
+  .tbd-container {
+    position: relative;
+    left: auto;
+    right: auto;
+  }
   .fa-arrow-circle-right {
-    color: orange;
-    margin: auto 20px;
+    color:  rgb(242, 145, 2, 1);
+    margin: auto 30px;
   }
   small {
     margin: auto 30px;
@@ -100,43 +105,18 @@ nav {
 .main {
   background: linear-gradient(rgb(255, 255, 245, 1), white);
   min-height: 697px;  /*mit header(guide): 570px;*/
-  padding-top: 50px;
+  padding-top: 67px;
   position: relative;
 }
-/*
-.header {
-  background: rgb(95, 204, 198, 0.1);
-}
-
-
-  .guide-container {
-    display: inline-flex;
-    height: 90%;
-    padding: 10px 14%;
-    text-align: left;
-  }
-  .guide-box {
-    background: white;
-    box-shadow: 0px 0px 10px 1px silver;
-    margin: 0 auto;
-    padding: 30px 20px;
-    width: 18%;
-  }
-  .guide-title {
-    font-weight: 600;
-    margin-left: 20px;
-  }
-  .guide-text {
-    font-size: 15px;
-  }
-*/
 
 .footer {
   background: linear-gradient(#eee, silver);
   border-top: 1px solid silver;
   padding: 10px 20px;
 }
-
+  .fa-github {
+    color: purple;
+  }
 
 h1 {
   font-family: raleway;
@@ -145,7 +125,7 @@ h1 {
 }
 .btn {
   background: white;
-  border: 1px solid lightgreen;
+  border: 1px solid lightblue;
   border-radius: 4px;
   font-family: raleway;
   font-size: 16px;
@@ -156,11 +136,18 @@ h1 {
   transition: all 0.3s ease-out;
 }
 .btn:hover {
-  background: lightgreen;
+  background: lightblue;
   border: 1px solid white;
   color: white;
 }
-
+.danger {
+  border: 1px solid red;
+}
+.danger:hover {
+  background: red;
+  border: 1px solid white;
+  color: white;
+}
 .delete {
   background: #ff7a7f;
   border: 1px solid #ff7a7f;

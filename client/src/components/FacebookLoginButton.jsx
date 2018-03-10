@@ -50,7 +50,6 @@ export default class FacebookLogin extends Component {
         userData
       })
     })
-        console.log("onLogin = true")
         this.props.onLogin(true, result);
       });
     } else {

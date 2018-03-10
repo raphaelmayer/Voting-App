@@ -141,7 +141,7 @@ console.log(this.state.poll)
     const date = this.state.poll.created.slice(0, 16)
     
     return (
-      <div className="main">
+      <div className="container">
         <h1>{this.state.poll.question}</h1><div>by {name[0]}</div>
         
         <div className="center-container">

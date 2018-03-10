@@ -50,10 +50,8 @@ componentDidMount() {console.log(this.state)}
   render() {
     const { username, isAuth, fbId } = this.state;
 
-    return (
-      <Router>
-      <div className="App">
-        
+    const NavBar = props => {
+      return (
         <nav>
           <Link to="/"><div className="logo"><i className="fa fa-users faLogo"></i>YouVote</div></Link>
           <div className="right-side">
@@ -68,33 +66,47 @@ componentDidMount() {console.log(this.state)}
              }
             <ul className="nav-ul"><Link to="/"><li className="nav-li">Home</li></Link><Link to="/my"><li className="nav-li">My Polls</li></Link><Link to="/about"><li className="nav-li">About</li></Link></ul>
           </div>
-
-{/*<div className="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>*/}
         </nav>
-        
-        <div className="tbd">Log in <i className="fas fa-arrow-circle-right"></i> Create your poll <i className="fas fa-arrow-circle-right"></i> Share it with friends <i className="fas fa-arrow-circle-right"></i> ???  <i className="fas fa-arrow-circle-right"></i> Profit! <small>for more information visit the about page.</small></div>
-        
-        {/*<header className="header">
-                <div className="guide-container">
-                  <div className="guide-box"><div className="guide-title">1. Log in</div><div className="guide-text">Log in with one click via Facebook. We do not use cookies and do not save your personal data.</div></div>
-                  <div className="guide-box"><div className="guide-title">2. Create your Poll</div><div className="guide-text">Fill out the form. You can add & remove answers however you like. Click submit to continue.</div></div>
-                  <div className="guide-box"><div className="guide-title">3. Share Link</div><div className="guide-text">You will get a Link in return. This link will redirect to your poll. Share it with your friends!</div></div>
-                  <div className="guide-box"><div className="guide-title">4. Get results</div><div className="guide-text">Your results will be displayed with a chart, for easy evaluating.</div></div>
-                </div>
-                </header>*/}
-
-        <Route exact path="/" component={Start} />
-        <Route path="/new" render={props => <NewPoll authData={this.state} {...props} />} />
-        <Route path="/my" render={props => <MyPolls authData={this.state} {...props} />} />
-        <Route path="/poll/:input" render={props => <Poll authData={this.state} {...props} />} />
-        <Route path="/about" component={About} />
-
+        )
+    }
+    const Footer = props => {
+      return (
         <div className="footer">
           <div>2018 - YouVote - A Voting-App by Raphael Mayer</div>
           <br/>
           <a href="http://github.com/attiimaster/voting-app" target="_blank"><i className="fab fa-github"></i> YouVote on Github</a>
         </div>
-      </div>
+        )
+    }
+
+    return (
+      <Router>
+        <div className="App">
+          
+          <NavBar />
+      
+          {/*<div className="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>*/}
+      
+          <div className="tbd">
+            <div className="tbd-container">Log in 
+              <i className="fas fa-arrow-circle-right"></i> Create your poll 
+              <i className="fas fa-arrow-circle-right"></i> Share it with friends 
+              <i className="fas fa-arrow-circle-right"></i> ???  
+              <i className="fas fa-arrow-circle-right"></i> Profit! 
+            </div>
+          </div>
+          
+          <div className="main">        
+            <Route exact path="/" component={Start} />
+            <Route path="/new" render={props => <NewPoll authData={this.state} {...props} />} />
+            <Route path="/my" render={props => <MyPolls authData={this.state} {...props} />} />
+            <Route path="/poll/:input" render={props => <Poll authData={this.state} {...props} />} />
+            <Route path="/about" component={About} />
+          </div>
+
+          <Footer />
+  
+        </div>
       </Router>
     );
   }

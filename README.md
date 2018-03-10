@@ -1,8 +1,8 @@
 # Voting App
 
-A NodeJS App that allows users to view polls, create polls, and vote on them. 
+A React App that allows users to view polls, create polls, and vote on them. 
 
-The app uses React for the front-end, express on the back-end, MongoDB for the database, and Facebook's SDK for authentication.
+The app uses React.js on the front-end, Express.js on the back-end, MongoDB for the database, and Facebook's SDK for authentication.
 
 You can view the live demo here: tbd
 
@@ -19,16 +19,23 @@ You can view the live demo here: tbd
 Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build-a-voting-app
 
 ### todo:
-* no chart colors if poll.answers > 12
 * bug: logout-button
 * bug: newpoll input.answers delete
-* bug: inserts new user on every login
+* about
+* rename header and its classes in about component
+* chart colors if poll.answers > 12
 * design(fonts, buttons, colors)
+* code revision and clean up
 
-### eventually todo:
+### maybe todo:
 * mongodb .find() projection
 * users can only vote once per poll
-* add tags to polls for a better search feature
-* code revision and clean up
+* improve search feature (add tags, make answers query-able => .createIndex("text")? )
 * maybe render chart after vote?
+* put searchbar query into URL (to make back work)
+* get user email from facebook
+
+### done:
+* bug: inserts new user on every refresh 
+* bug: refreshing /mypolls renders no polls => componentWillReceiveProps()
 

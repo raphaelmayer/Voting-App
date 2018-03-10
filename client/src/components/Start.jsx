@@ -33,23 +33,20 @@ class Start extends Component {
   render() {
     const polls = this.state.polls;
     const searchTerm = this.state.searchTerm;
-    
-    return (
-        <div className="main">
-          <div className="startBox">
-            <h1>What do you want to do?</h1>
-            <p>If you are not logged in you can still view and vote on polls from others.</p>
-          </div>
-          
+    const SearchBarContainer = props => {
+      return (
           <div className="search-bar-container">
             <form className="search-bar-form" onSubmit={this.handleSearch}>
               <input className="search-bar-input" type="text" placeholder="search for polls . . . "/>
               <button className="btn" type="submit">Search</button>
             </form>
-            <Link to="/new"><button className="btn" type="button">New Poll</button></Link>
+            <Link to="/new" className="btn">New Poll</Link>
           </div>
-
-          <div className="search-results-container" id="search-results-container">
+        )
+    }    
+    const SearchResultsContainer = props => {
+      return (
+        <div className="search-results-container" id="search-results-container">
           <h2>{polls.length} Search results for <u>{searchTerm}</u>:</h2> 
             {polls.map(polls => 
               <Link to={"./poll/" + polls._id}>
@@ -62,6 +59,21 @@ class Start extends Component {
               </Link>
             )}
           </div>
+      )
+    }
+    
+    return (
+        <div className="container">
+          
+          <div className="startBox">
+            <h1>What do you want to do?</h1>
+          </div>
+          
+          <SearchBarContainer />
+
+          <p>If you are not logged in you can still <strong>view</strong> and <strong>vote</strong> on polls from others.</p>
+
+          <SearchResultsContainer />
 
         </div>
     );
