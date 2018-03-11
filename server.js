@@ -18,7 +18,7 @@ mongodb.MongoClient.connect(process.env.DB_KEY, (err, client) => {
 	var db = client.db("votinappdb");
 
 
-	routes(app, db);
+	routes(app, db); 
 
 	
 	app.listen(5000, () => {console.log("Listening on 5000 . . . ")});

@@ -59,6 +59,21 @@ nav {
       font-size: 18px;
       margin: 30px 1px;
     }
+    .logout-button {
+      background: #3b5998;
+      border: 2px solid white;
+      border-radius: 4px;
+      color: white;
+      font-weight: 700;
+      opacity: 0.9;
+      padding: 4px 14px;
+      transition: all 0.3s ease;
+    }
+    .logout-button:hover {
+      background: #3b5998;
+      border: 2px solid white;
+      opacity: 1;
+    }
     
     .nav-ul {
       margin: 30px 30px 30px 0px;
@@ -104,7 +119,7 @@ nav {
 
 .main {
   background: linear-gradient(rgb(255, 255, 245, 1), white);
-  min-height: 697px;  /*mit header(guide): 570px;*/
+  min-height: 687px;  /*mit header(guide): 570px;*/
   padding-top: 8vh;
   position: relative;
 }

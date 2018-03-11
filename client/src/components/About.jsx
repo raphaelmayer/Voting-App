@@ -22,9 +22,8 @@ class About extends Component {
 
 				<h1>Clarification</h1>
 				<div className="clarification">
-					<p>You have to be logged in to create new polls.</p>
-					<p>Login: You need a facebook account. Authentication via facebook is currently the only authentication method supported.</p>
-					<p>Searchbar: Currently only looks for matching questions or author names.</p>
+					<p><strong>Login:</strong> You need a facebook account. Authentication via facebook is currently the only authentication method supported.</p>
+					<p><strong>Searchbar:</strong> Currently only looks for a match in poll titles or author names.</p>
 					<br/><br/>
 					<h4>Found some bugs? Contact me via Github or get in touch with me <a href="http://attiimaster.github.io/#contact" className="alt" target="_blank">here</a>.</h4>
 				</div>

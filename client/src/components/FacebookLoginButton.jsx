@@ -78,7 +78,7 @@ export default class FacebookLogin extends Component {
     if(this.props.isAuth) {
       return (
         <div onClick={this.facebookLogout}>
-          <p className="welcome">Welcome back, {this.props.username.split(" ")[0]}! <button>Logout</button></p>
+          <p className="welcome">Welcome back, {this.props.username.split(" ")[0]}! <button className="logout-button">Logout</button></p>
         </div>
         )
     }
