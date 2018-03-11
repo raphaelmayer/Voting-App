@@ -41,15 +41,15 @@ export default class FacebookLogin extends Component {
           user: userData
         };
         fetch("/facebookAuth", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        userData
-      })
-    })
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userData
+          })
+        })
         this.props.onLogin(true, result);
       });
     } else {
@@ -59,9 +59,13 @@ export default class FacebookLogin extends Component {
 
   //Or log user out ==> in app.js for now
   facebookLogout = () => {
-    this.FB.getLoginStatus(res => {
+    window.FB.getLoginStatus(res => {
+      //console.log("this.props")
+      //console.log(this.props) 
       if(res.status === 'connected') {
-        this.FB.logout(function(response) {  
+        window.FB.logout(function(response) { 
+          alert("You have been logged out!")
+          window.location.reload()
           // Person is now logged out
         });
       }
@@ -70,6 +74,14 @@ export default class FacebookLogin extends Component {
 
   render() {
     let {children} = this.props;
+    //console.log("isAuth: " + this.props.isAuth)
+    if(this.props.isAuth) {
+      return (
+        <div onClick={this.facebookLogout}>
+          <p className="welcome">Welcome back, {this.props.username.split(" ")[0]}! <button>Logout</button></p>
+        </div>
+        )
+    }
     return (
       <div onClick={this.facebookLogin}>
         {children}

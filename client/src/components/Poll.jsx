@@ -9,8 +9,8 @@ class Poll extends Component {
     this.state = {
       poll: {answers: [],
              votes: [],
-             creator: "string",
-             created: "string",}
+             creator: " ",
+             created: " ",}
     };
     this.handleAddAnswer = this.handleAddAnswer.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)

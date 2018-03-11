@@ -57,11 +57,11 @@ nav {
     }
     .welcome {
       font-size: 18px;
-      margin: 30px 20px;
+      margin: 30px 1px;
     }
     
     .nav-ul {
-      margin: 30px 30px 30px 20px;
+      margin: 30px 30px 30px 0px;
      }
     .nav-li {
       border-left: 2px solid #eee;
@@ -105,7 +105,7 @@ nav {
 .main {
   background: linear-gradient(rgb(255, 255, 245, 1), white);
   min-height: 697px;  /*mit header(guide): 570px;*/
-  padding-top: 67px;
+  padding-top: 8vh;
   position: relative;
 }
 
@@ -116,8 +116,12 @@ nav {
 }
   .fa-github {
     color: purple;
+    text-shadow: 0px 0px 2px red;
+    transition: all 0.2s ease;
   }
-
+a:hover .fa-github {
+  color: rgb(235, 89, 255)
+}
 h1 {
   font-family: raleway;
   margin: 0;
@@ -178,4 +182,22 @@ a {
 }
 input:hover {
   box-shadow: inset 0px 0px 6px 1px #eee;
+}
+button {
+  cursor: pointer;
+}
+h3 {
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .welcome {
+    font-size: 1em;
+  }
+  .nav-ul {
+    display: none;
+  }
+  .tbd {
+    font-size: 1em;
+  }
 }

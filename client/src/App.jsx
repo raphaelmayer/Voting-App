@@ -7,6 +7,7 @@ import MyPolls from './components/MyPolls';
 import Poll from './components/Poll';
 import FacebookLoginButton from './components/FacebookLoginButton';
 import About from './components/About';
+import Explore from './components/Explore';
 
 
 class App extends Component {
@@ -55,16 +56,14 @@ componentDidMount() {console.log(this.state)}
         <nav>
           <Link to="/"><div className="logo"><i className="fa fa-users faLogo"></i>YouVote</div></Link>
           <div className="right-side">
-            { !username &&
+
                 <div>
-                  <FacebookLoginButton onLogin={this.onFacebookLogin}>
+                  <FacebookLoginButton onLogin={this.onFacebookLogin} isAuth={this.state.isAuth} username={this.state.username}>
                     <button className="login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text">Continue with Facebook</div></button>
                   </FacebookLoginButton>
                 </div>
-            }{ username &&
-                <p className="welcome">Welcome back, {username.split(" ")[0]}. <button onClick={this.facebookLogout} type="button">Logout</button></p>
-             }
-            <ul className="nav-ul"><Link to="/"><li className="nav-li">Home</li></Link><Link to="/my"><li className="nav-li">My Polls</li></Link><Link to="/about"><li className="nav-li">About</li></Link></ul>
+
+            <ul className="nav-ul"><Link to="/"><li className="nav-li">Home</li></Link><Link to="/explore"><li className="nav-li">Explore</li></Link><Link to="/my"><li className="nav-li">My Polls</li></Link><Link to="/about"><li className="nav-li">About</li></Link></ul>
           </div>
         </nav>
         )
@@ -72,7 +71,7 @@ componentDidMount() {console.log(this.state)}
     const Footer = props => {
       return (
         <div className="footer">
-          <div>2018 - YouVote - A Voting-App by Raphael Mayer</div>
+          <div>2018 - YouVote - A voting app by Raphael Mayer</div>
           <br/>
           <a href="http://github.com/attiimaster/voting-app" target="_blank"><i className="fab fa-github"></i> YouVote on Github</a>
         </div>
@@ -102,6 +101,7 @@ componentDidMount() {console.log(this.state)}
             <Route path="/my" render={props => <MyPolls authData={this.state} {...props} />} />
             <Route path="/poll/:input" render={props => <Poll authData={this.state} {...props} />} />
             <Route path="/about" component={About} />
+            <Route path="/explore" component={Explore} />
           </div>
 
           <Footer />

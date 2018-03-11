@@ -12,17 +12,34 @@
 .guide-box {
   background: white;
   box-shadow: 0px 0px 4px 1px silver;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 30px 20px;
+  position: relative;
   width: 18%;
+}
+.guide-icon {
+  color: rgb(160, 160, 160, 0.2);
+  font-size: 90px;
+  position: absolute;
+  top: 5%;
+  right: 3%;
 }
 .guide-title {
   border-bottom: 1px solid orange;
   font-weight: 600;
   margin: 0px 20px;
+  position: relative;
+  z-index: 1;
 }
 .guide-text {
-  font-size: 15px;
+  font-size: 1em;
+  position: relative;
+  z-index: 1;
+}
+.clarification {
+  margin: 0 auto;
+  ext-align: left;
+  width: 40%;
 }
 a.alt {
   color: orange;
@@ -30,4 +47,24 @@ a.alt {
 }
 a.alt:hover {
   color: rgb(242, 145, 2);
+}
+h4 {
+  ext-align: center;
+}
+
+@media (max-width: 1000px) {
+  .guide-container {
+    display: inline;
+  }
+  .guide-box {
+    width: 40%;
+  }
+  .clarification {
+    width: 70%;
+  }
+}
+@media (max-width: 900px) {
+  .guide-box {
+    width: 60%;
+  }
 }

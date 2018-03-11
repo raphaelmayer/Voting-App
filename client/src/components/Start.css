@@ -66,3 +66,12 @@
 	font-size: 14px;
 	text-shadow: none;
 }
+
+@media (max-width: 767px) {
+	.search-results-container {
+		width: 92%;
+	}
+	.search-bar-input {
+		width: 30vw;
+	}
+}

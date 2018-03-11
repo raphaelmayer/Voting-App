@@ -31,10 +31,10 @@ class NewPoll extends Component {
   handleDelete(event) {
     let i = event.target.name;
     console.log("I: " + i)
-    let arr = this.state.answers.slice();
+    let arr = this.state.placeH.slice();
     console.log(arr)
     arr.splice(i, 1);
-    this.setState({answers: arr});
+    this.setState({placeH: arr});
     console.log(this.state.answers)
   }
   handleChange(event) { //not in use for now
@@ -53,6 +53,16 @@ class NewPoll extends Component {
 componentDidMount() {
   console.log(this.props.authData)
 }
+/*
+  createAnswers(event, arr) {
+    var i = event.target.length -4
+    for( let j = 1; j <= i; j++ ) {
+        console.log((i-(i-j)));
+        arr.push(event.target[(i-(i-j))].value)
+        j++;
+      }
+  }
+*/
   handleSubmit(event) {
     event.preventDefault();
     if(!this.props.authData.fbId) {alert("You need to be logged in to submit new polls!")}
@@ -95,7 +105,7 @@ componentDidMount() {
   render() {
     
 
-    const placeH = this.state.answers.map((x, i) =>  <div className="answerBox" key={i}>
+    const placeH = this.state.placeH.map((x, i) =>  <div className="answerBox" key={i}>
                                                         <input className="answer"
                                                                type="text"
                                                                name={i}

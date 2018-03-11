@@ -19,23 +19,27 @@ You can view the live demo here: tbd
 Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build-a-voting-app
 
 ### todo:
-* bug: logout-button
-* bug: newpoll input.answers delete
+* bug: /mypolls on delete alert()
+* /poll convert displayed time
 * about
-* rename header and its classes in about component
-* design(fonts, buttons, colors)
+* responsiveness (about, poll, nav)
 * code revision and clean up
-* chart colors if poll.answers > 12
 
 ### maybe todo:
+* chart colors if poll.answers > 12
+* add delete function to /poll
+* bug: /newpoll input.answers delete
 * mongodb .find() projection
 * users can only vote once per poll
 * improve search feature (add tags, make answers query-able => .createIndex("text")? )
 * maybe render chart after vote?
 * put searchbar query into URL (to make back work)
 * get user email from facebook
+* comment feature
+* basic SEO
 
 ### done:
+* bug: logout-button => moved logic to child component, kinda dirty
 * bug: inserts new user on every refresh 
 * bug: refreshing /mypolls renders no polls => componentWillReceiveProps()
 

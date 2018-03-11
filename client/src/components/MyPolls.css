@@ -20,7 +20,7 @@
  	padding: 2px 7px;
  	position: absolute;
  	top: -12%;
- 	right: -4%;
+ 	right: -3%;
  	transition: all 0.3s ease-out;
  	width: 26px;
 }
@@ -69,4 +69,10 @@
 	position: absolute;
 	right: 3%;
 	font-style: oblique;
+}
+
+@media (max-width: 767px) {
+	.polls {
+		width: 92%;
+	}
 }
