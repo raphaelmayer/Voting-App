@@ -64,15 +64,15 @@ nav {
       border: 2px solid white;
       border-radius: 4px;
       color: white;
-      font-weight: 700;
-      opacity: 0.9;
+      letter-spacing: 1px;
+      margin: 0 2px;
+      opacity: 0.3;
       padding: 4px 14px;
       transition: all 0.3s ease;
     }
     .logout-button:hover {
       background: #3b5998;
-      border: 2px solid white;
-      opacity: 1;
+      opacity: 0.8;
     }
     
     .nav-ul {
