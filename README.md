@@ -2,9 +2,9 @@
 
 A React App that allows users to view polls, create polls, and vote on them. 
 
-The app uses React.js on the front-end, Express.js on the back-end, MongoDB for the database, and Facebook's SDK for authentication.
+The app uses **React.js** on the front-end, **Express.js** on the back-end, **MongoDB** for the database, and Facebook's SDK for authentication.
 
-You can view the live demo here: tbd
+You can view the live demo here: *to be determined*
 
 ### User Stories:
 * As an authenticated user, I can keep my polls and come back later to access them.
@@ -21,6 +21,7 @@ Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build
 ### Additional Features:
 * Search Feature
 * Explore *hot* and *most recent* polls
+
 
 ---
 
