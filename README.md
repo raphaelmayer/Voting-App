@@ -28,6 +28,8 @@ Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build
 ---
 
 
+#####my notes:
+
 ### todo:
 * responsiveness (about, poll, nav)
 * code revision and clean up
