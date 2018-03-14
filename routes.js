@@ -95,13 +95,13 @@ module.exports = (app, db) => {
 			name: req.body.userData.name,
 			fbId: req.body.userData.id,
 			email: "doc.email",
-			createdAt: new Date().toString()
+			//createdAt: new Date().toISOString()
 		}
 		db.collection("users").update(	{ fbId: doc.fbId },
 										{ name: doc.name,
 										  fbId: doc.fbId,
 										  email: "doc.email", 
-										  createdAt: new Date().toString() }, 
+										  createdAt: new Date().toISOString() }, 
 									  	{ upsert: true } );
 		//console.log(doc)
 		res.end()

@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/components/NavBar.jsx
 
 # testing
 /coverage

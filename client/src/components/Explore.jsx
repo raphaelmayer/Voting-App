@@ -18,8 +18,6 @@ class Explore extends Component {
 
 	render() {
 		const Polls = props => {
-			console.log("this.props.index: " + props.index)
-
 			return (
 				<div className="split">
 					<h3 className=""><i className={props.cL}></i> {props.title}</h3>
@@ -34,17 +32,17 @@ class Explore extends Component {
             	  		</Link>
             		)}
             	</div>
-			)
-		}
+			)};
+			
 		return(
 			<div className="container">
 				<h1 className="">Explore</h1>
-				<div className="polls">
-	
-				<Polls index={0} title={"hot right now"} cL={"fas fa-fire"} />
-				<Polls index={1} title={"recently asked"} cL={"far fa-clock"} />
-
+				
+				<div className="polls">	
+					<Polls index={0} title={"hot right now"} cL={"fas fa-fire"} />
+					<Polls index={1} title={"recently asked"} cL={"far fa-clock"} />
 				</div>
+
 			</div>
 			);
 	}

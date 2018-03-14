@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Chart from 'chart.js';
+import Chart from './Chart';
 import './Poll.css';
 
 class Poll extends Component {
@@ -14,7 +14,7 @@ class Poll extends Component {
     };
     this.handleAddAnswer = this.handleAddAnswer.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
+  };
 
   componentWillMount() {
     let id = this.props.location.pathname.slice(6);   //window.location.href
@@ -22,84 +22,8 @@ class Poll extends Component {
       .then(res => res.json())
       .then(poll => this.setState({poll}, () => {
         console.log('Poll fetched...', poll);
-
-//=============================Chartjs===========================
-        let poll = this.state.poll;
-        let data = {
-          datasets: [{
-              data: poll.votes,
-              backgroundColor: [ 'rgba(54, 162, 235, 0.8)',
-                                 'rgba(255, 99, 132, 0.8)',
-                                 'rgba(82, 206, 105, 0.8)',
-                                 'rgba(255, 159, 64, 0.8)',
-                                 'rgba(153, 102, 255, 0.8)',
-                                 'rgba(193, 255, 140, 0.8)',
-                                 'rgba(75, 192, 192, 0.8)',
-                                 'rgba(255, 206, 86, 0.8)',
-                                 'rgba(237, 149, 210, 0.8)',
-                                 'rgba(192, 104, 255, 0.8)',
-                                 'rgba(196, 238, 255, 0.8)', ],
-              strokeColor: 'rgba(255, 255, 255, 0.5)'}],
-          labels: poll.answers,
-        };
-
-        let options = {
-          cutoutPercentage: 60,
-          elements: {center: {
-          text: this.state.poll.votes.reduce((pv, cv) => pv+cv, 0) + " votes"}},
-        };
-
-        Chart.pluginService.register({  //draw votes sum in center
-          beforeDraw: function (chart) {
-            if (chart.config.options.elements.center) {
-              //Get ctx from string
-              var ctx = chart.chart.ctx;
-              
-              //Get options from the center object in options
-              var centerConfig = chart.config.options.elements.center;
-              var fontStyle = centerConfig.fontStyle || 'Arial';
-              var txt = centerConfig.text;
-              var color = centerConfig.color || '#000';
-              var sidePadding = centerConfig.sidePadding || 20;
-              var sidePaddingCalculated = (sidePadding/100) * (chart.innerRadius * 2)
-              //Start with a base font of 30px
-              ctx.font = "30px " + fontStyle;
-              
-              //Get the width of the string and also the width of the element minus 10 to give it 5px side padding
-              var stringWidth = ctx.measureText(txt).width;
-              var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
-
-              // Find out how much the font can grow in width.
-              var widthRatio = elementWidth / stringWidth;
-              var newFontSize = Math.floor(30 * widthRatio);
-              var elementHeight = (chart.innerRadius * 2);
-
-              // Pick a new font size so it will not be larger than the height of label.
-              var fontSizeToUse = Math.min(newFontSize, elementHeight);
-
-              //Set font settings to draw it correctly.
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'middle';
-              var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
-              var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
-              ctx.font = fontSizeToUse+"px " + fontStyle;
-              ctx.fillStyle = color;
-              
-              //Draw text in center
-              ctx.fillText(txt, centerX, centerY);
-            }
-          }
-        });
-
-        var ctx = document.getElementById("myChart");
-        var myPieChart = new Chart( ctx, {
-            type: 'doughnut',
-            data: data,
-            options: options,
-        })
-//===============================================================
     }))
-  }
+  };
 
   handleAddAnswer(event) {
     if(this.props.authData.isAuth) {
@@ -111,7 +35,7 @@ class Poll extends Component {
       this.setState(obj)
       
     } else alert("You need to be logged in to perform this action!")
-  }
+  };
 
   handleSubmit(event) {
     const poll = this.state.poll;
@@ -122,7 +46,7 @@ class Poll extends Component {
         //poll.voters.push(this.props.username)
         this.setState(this.state.poll.votes: poll.votes)
 
-console.log(this.state.poll)
+//console.log(this.state.poll)
         fetch("/vote", {
           method: 'POST',
           headers: {
@@ -133,46 +57,52 @@ console.log(this.state.poll)
         })
       }
     }
-  }
+  };
 
   render() {
-    const votesum = this.state.poll.votes.reduce((pv, cv) => pv+cv, 0)
-    const name = this.state.poll.creator.split(" ")
-    const date = this.state.poll.created.slice(0, 16)
-    
-    return (
-      <div className="container">
-        <h1>{this.state.poll.question}</h1><div>by {name[0]}</div>
-        
-        <div className="center-container">
-          <div className="choices">
-            <form onSubmit={this.handleSubmit}>
-                {this.state.poll.answers.map(x => {
+    const { poll } = this.state
+    const votesum = poll.votes.reduce((pv, cv) => pv+cv, 0)
+    const name = poll.creator.split(" ")
+    const date = poll.created.slice(0, 19).split("T")
+    const Choices = poll.answers.map(x => {
                                 return  <div className="choice">
                                           <label><input type="radio" name="choice"/>{x}</label>
                                         </div>
-                              }
-                  )}
+                              });
+
+    const Description = () => {
+      return (
+        <div className="desc">
+          <strong>Link:</strong><div className="poll-link"> {"http://localhost:3000/poll/" + poll._id}</div> 
+          <br/>
+          <strong>Asked by {name[0]}</strong> on {date[0]} -- {date[1]}
+          <br/>
+        </div>
+      )};
+    
+    return (
+      <div className="container">
+        <h1>{poll.question}</h1><div>by {name[0]}</div>
+        
+        <div className="center-container">
+
+          <div className="choices">
+            <form onSubmit={this.handleSubmit}>
+                {Choices}
                 <br/>  
                 <button className="btn" type="submit">Submit</button>
                 <button className="btn" type="button" onClick={this.handleAddAnswer}>add option</button>
             </form>
           </div>
 
-          <div className="chartContainer">
-            <canvas id="myChart"></canvas>
-          </div>
+          <Chart poll={poll} />
 
         </div>
-
-        <div className="desc">
-          <strong>Link:</strong><div className="poll-link"> {"http://localhost:3000/poll/" + this.state.poll._id}</div> 
-          <br/><strong>Asked by {name[0]}</strong> on {date}<br/>
-        </div>
+        <Description />
         <br/>
       </div>
-    );
+    )
   }
-}
+};
 
 export default Poll;

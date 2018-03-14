@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
+//import NavBar from './components/NavBar';
 import NewPoll from './components/NewPoll';
 import Start from './components/Start';
 import MyPolls from './components/MyPolls';
@@ -11,42 +12,42 @@ import Explore from './components/Explore';
 
 
 class App extends Component {
-  state = {
-    isAuth: false,
-    username: null,
-    fbId: null
-  };
-
-componentDidMount() {console.log(this.state)}
+  constructor() {
+    super();
+    this.state = {
+      isAuth: false,
+      username: null,
+      fbId: null,
+      toggleNav: false,
+    }; 
+    this.handleNavButton = this.handleNavButton.bind(this)
+  }
 
   onFacebookLogin = (loginStatus, resultObject) => {
     if (loginStatus === true) {
-      console.log(resultObject)
+      //console.log(resultObject)
       this.setState({
         isAuth: true,
         username: resultObject.user.name,
         fbId: resultObject.user.id
       });
-      console.log(this.state)
+      //console.log(this.state)
     } else {
     //  alert('Facebook login error');
     }
   }
 
-    /*facebookLogout = () => {    //meh
-    window.FB.getLoginStatus(res => {
-      if(res.status === 'connected') {
-        window.FB.logout(function(response) {  
-          // Person is now logged out
-        });
-        this.setState({
-        isAuth: false,
-        username: null,
-        fbId: null
-      });
-      }
-    })
-  }*/
+  handleNavButton(event) {
+    event.preventDefault();
+    if(this.state.toggleNav) {
+      this.setState({toggleNav: false})
+    } else {
+      this.setState({toggleNav: true})
+      //document.getElementById("mobile-navbar").setAttribute("style", "display: inline;");
+
+    }
+
+  }
 
   render() {
     const { username, isAuth, fbId } = this.state;
@@ -54,7 +55,7 @@ componentDidMount() {console.log(this.state)}
     const NavBar = props => {
       return (
         <nav>
-          <Link to="/"><div className="logo"><i className="fa fa-users faLogo"></i>YouVote</div></Link>
+          <Link to="/"><div className="logo"><i className="fas fa-chart-pie faLogo"></i>YouVote</div></Link>
           <div className="right-side">
 
                 <div>
@@ -64,10 +65,26 @@ componentDidMount() {console.log(this.state)}
                 </div>
 
             <ul className="nav-ul"><Link to="/"><li className="nav-li">Home</li></Link><Link to="/explore"><li className="nav-li">Explore</li></Link><Link to="/my"><li className="nav-li">My Polls</li></Link><Link to="/about"><li className="nav-li">About</li></Link></ul>
+            <div onClick={this.handleNavButton}><i className="fas fa-bars nav-button"></i></div>
           </div>
+
+          { this.state.toggleNav ? <MobileNavBar /> : null }
+
         </nav>
         )
     }
+
+    const MobileNavBar = () => {
+      return (
+        <div className="mobile-navbar" id="mobile-navbar">
+          <Link className="mobile-nav-button" to="/">Home</Link>
+          <Link className="mobile-nav-button" to="/explore">Explore</Link>
+          <Link className="mobile-nav-button" to="/my">My Polls</Link>
+          <Link className="mobile-nav-button" to="/about">About</Link>
+        </div>
+      )
+    }
+
     const Footer = props => {
       return (
         <div className="footer">

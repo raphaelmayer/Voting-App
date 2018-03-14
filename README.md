@@ -1,8 +1,10 @@
-# Voting App
+# YouVote - A Voting App
 
 A React App that allows users to view polls, create polls, and vote on them. 
 
-The app uses **React.js** on the front-end, **Express.js** on the back-end, **MongoDB** for the database, and Facebook's SDK for authentication.
+This app was built with **React.js** on the front-end, **Express.js** on the back-end and a **MongoDB** database. 
+
+*Authentication via Facebook only for now.*
 
 You can view the live demo here: *to be determined*
 
@@ -25,25 +27,28 @@ Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build
 
 ---
 
+
 ### todo:
-* bug: /mypolls on delete alert()
-* /poll convert displayed time
 * responsiveness (about, poll, nav)
 * code revision and clean up
 
 ### maybe todo:
-* users can only vote once per poll
+* users can only vote once per poll (isAuth => voters.push(username))
 * bug: /newpoll input.answers delete
+* redesign /poll?
+* maybe render chart after vote?
 * improve search feature (add tags, make answers query-able => .createIndex("text")? )
 * put searchbar query into URL (to make back work)
 * get user email from facebook
 * mongodb .find() projection
 * add delete function to /poll
 * comment feature
-* maybe render chart after vote?
+* 
 * basic SEO
 * chart colors if poll.answers > 12
+* /poll convert displayed time to eg. two days ago, one month ago, etc.
 
 ### done:
+* bug: /mypolls on delete alert() => removed alert message
 * bug: logout-button => moved logic to child component, kinda meh
 

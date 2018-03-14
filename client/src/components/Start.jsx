@@ -15,7 +15,7 @@ class Start extends Component {
     };
 
     this.handleSearch = this.handleSearch.bind(this)
-  }
+  };
 
   handleSearch(event) {
     event.preventDefault()
@@ -27,12 +27,13 @@ class Start extends Component {
         .then(polls => this.setState({polls}, () => {
           console.log('Polls fetched . . .', polls);
           document.getElementById("search-results-container").setAttribute("style", "display: block;")
-        }));
-  }
+        }))
+  };
 
   render() {
     const polls = this.state.polls;
     const searchTerm = this.state.searchTerm;
+
     const SearchBarContainer = props => {
       return (
           <div className="search-bar-container">
@@ -42,8 +43,8 @@ class Start extends Component {
             </form>
             <Link to="/new" className="btn">New Poll</Link>
           </div>
-        )
-    }    
+        )};
+
     const SearchResultsContainer = props => {
       return (
         <div className="search-results-container" id="search-results-container">
@@ -59,8 +60,7 @@ class Start extends Component {
               </Link>
             )}
           </div>
-      )
-    }
+      )};
     
     return (
         <div className="container">

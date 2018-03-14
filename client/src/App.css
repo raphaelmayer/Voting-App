@@ -14,7 +14,7 @@ nav {
     font-family: 'raleway';
     font-size: 40px;
     font-weight: 900;
-    margin: 18px 30px;
+    margin: 18px 2vw;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -56,7 +56,7 @@ nav {
       margin: 2px 0px;
     }
     .welcome {
-      font-size: 18px;
+      font-size: 1em;
       margin: 30px 1px;
     }
     .logout-button {
@@ -76,7 +76,7 @@ nav {
     }
     
     .nav-ul {
-      margin: 30px 30px 30px 0px;
+      margin: 30px 2vw 30px 0px;
      }
     .nav-li {
       border-left: 2px solid #eee;
@@ -95,9 +95,53 @@ nav {
       text-shadow: 0px 0px 1px #555;
     }
 
+.nav-button {
+  color: black;
+  display: none;
+  float: right;
+  font-size: 30px;
+  margin: 28px 30px;
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+.nav-button:hover {
+  color: red;
+}
+@media (max-width: 900px) {
+  .nav-button {
+    display: inline;
+  }
+}
+.mobile-navbar {
+  background: rgb(60, 60, 60, 0.9);
+  border-radius: 2px;
+  box-shadow: inset 0px 0px 10px 3px #222;
+  isplay: none;
+  padding-bottom: 20px;
+  padding-top: 100px;
+  position: absolute;
+  right: 0;
+  width: 40%;
+  z-index: 1;
+}
+.mobile-nav-button {
+  border-top: 1px solid white;
+  box-shadow: 0px 0px 10px 1px #444;
+  color: white;
+  display: inline-flex;
+  font-family: 'raleway';
+  letter-spacing: 3px;
+  padding: 4px 10px;
+  width: 80%;
+  transition: all 0.3s ease;
+}
+.mobile-nav-button:hover {
+  color: orange;
+}
 .tbd {
   background: linear-gradient(#667, #323);
-  color: white;
+  color: rgb(255, 255, 255, 0.9);;
   font-family: lato;
   font-size: 1.2em;
   letter-spacing: 1px;
@@ -111,10 +155,7 @@ nav {
   }
   .fa-arrow-circle-right {
     color:  rgb(242, 145, 2, 1);
-    margin: auto 30px;
-  }
-  small {
-    margin: auto 30px;
+    margin: auto 1.5vw;
   }
 
 .main {
@@ -206,6 +247,9 @@ h3 {
 }
 
 @media (max-width: 900px) {
+  .logo {
+
+  }
   .welcome {
     font-size: 1em;
   }
@@ -214,5 +258,10 @@ h3 {
   }
   .tbd {
     font-size: 1em;
+  }
+}
+@media (max-width: 620px) {
+  .welcome {
+    display: none;
   }
 }

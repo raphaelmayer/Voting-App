@@ -47,17 +47,14 @@ class MyPolls extends Component {
             },
             body: JSON.stringify({pollId: pollId})
           })        
-        } else alert("Error! You do not seem to be the creator of this poll!")
+        }// else alert("Error! You do not seem to be the creator of this poll!")
       }      
     } 
     
   }
     
   render() {
-    const Polls = props => {
-      return (
-        <div className="polls">
-        {this.state.mypolls.map(mypolls => 
+    const polls = this.state.mypolls.map(mypolls => 
           <Link to={"./poll/" + mypolls._id} key={mypolls.id}>
             <div className="search-results-box">
               <div className="search-results-question">{mypolls.question} 
@@ -67,10 +64,7 @@ class MyPolls extends Component {
               <button className="delete2" onClick={this.handleDelete} key={mypolls.id}>X</button>
             </div>
           </Link>
-        )}
-        </div>
         )
-    }
 
     {if(!this.props.authData.isAuth) {
       return (<h1 className="main">You need to be logged in to view this page!</h1>)
@@ -79,7 +73,11 @@ class MyPolls extends Component {
     return (
       <div className="container">
         <h1>My Polls</h1>
-        <Polls />
+
+        <div className="polls">
+          {polls}
+        </div>
+        
         <Link to="/new" className="btn">New Poll</Link>
       </div>
     );
