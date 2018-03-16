@@ -50,7 +50,7 @@ class App extends Component {
   }
 
   render() {
-    const { username, isAuth, fbId } = this.state;
+    //const { username, isAuth, fbId } = this.state;
 
     const NavBar = props => {
       return (
@@ -90,7 +90,7 @@ class App extends Component {
         <div className="footer">
           <div>2018 - YouVote - A voting app by Raphael Mayer</div>
           <br/>
-          <a href="http://github.com/attiimaster/voting-app" target="_blank"><i className="fab fa-github"></i> YouVote on Github</a>
+          <a href="http://github.com/attiimaster/voting-app" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i> YouVote on Github</a>
         </div>
         )
     }

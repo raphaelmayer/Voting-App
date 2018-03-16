@@ -5,11 +5,11 @@ module.exports = (app, db) => {
 //=============================  /start  ====================================
 	app.get('/search/:input', (req, res) => {
 		let input = req.params.input
-		console.log(input)
+		//console.log(input)
 		db.collection("polls").createIndex( { question: "text", creator: "text" } )
 		db.collection("polls").find({ $text: { $search: input }}).toArray((err, result) => {
 			if(err) {throw new Error}
-			console.log(result)
+			//console.log(result)
 			let polls = result;
 			res.json(polls)
 		})

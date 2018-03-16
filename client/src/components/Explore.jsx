@@ -21,8 +21,8 @@ class Explore extends Component {
 			return (
 				<div className="split">
 					<h3 className=""><i className={props.cL}></i> {props.title}</h3>
-					{this.state.polls[props.index].map(polls => 
-            	  		<Link to={"./poll/" + polls._id}>
+					{this.state.polls[props.index].map((polls, i) => 
+            	  		<Link to={"./poll/" + polls._id} key={i}>
             	  			<div className="search-results-box">
             	    			<div className="search-results-question">{polls.question} 
             	      				<div className="search-results-votes">{polls.votes.reduce((pv, cv) => pv+cv, 0)}</div>

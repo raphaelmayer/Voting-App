@@ -49,8 +49,8 @@ class Start extends Component {
       return (
         <div className="search-results-container" id="search-results-container">
           <h2>{polls.length} Search results for <u>{searchTerm}</u>:</h2> 
-            {polls.map(polls => 
-              <Link to={"./poll/" + polls._id}>
+            {polls.map((polls, i) => 
+              <Link to={"./poll/" + polls._id} key={i}>
               <div className="search-results-box">
                 <div className="search-results-question">{polls.question} 
                   <div className="search-results-votes">{polls.votes.reduce((pv, cv) => pv+cv, 0)}</div>

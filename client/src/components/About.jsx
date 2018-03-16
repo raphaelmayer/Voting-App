@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './About.css';
 
 class About extends Component {
@@ -25,7 +24,7 @@ class About extends Component {
 					<p><strong>Login:</strong> You need a facebook account. Authentication via facebook is currently the only authentication method supported.</p>
 					<p><strong>Searchbar:</strong> Currently only looks for a match in poll titles and author names.</p>
 					<br/><br/>
-					<h4>Found some bugs? Contact me via Github or get in touch with me <a href="http://attiimaster.github.io/#contact" className="alt" target="_blank">here</a>.</h4>
+					<h4>Found some bugs? Contact me via Github or get in touch with me <a href="http://attiimaster.github.io/#contact" className="alt" target="_blank" rel="noopener noreferrer">here</a>.</h4>
 				</div>
 			
 			

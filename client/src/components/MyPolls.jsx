@@ -54,8 +54,8 @@ class MyPolls extends Component {
   }
     
   render() {
-    const polls = this.state.mypolls.map(mypolls => 
-          <Link to={"./poll/" + mypolls._id} key={mypolls.id}>
+    const polls = this.state.mypolls.map((mypolls, i) => //check key
+          <Link to={"./poll/" + mypolls._id} key={i}>
             <div className="search-results-box">
               <div className="search-results-question">{mypolls.question} 
                 <div className="search-results-votes">{mypolls.votes.reduce((pv, cv) => pv+cv, 0)}</div>

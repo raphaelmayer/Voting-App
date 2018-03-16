@@ -28,14 +28,14 @@ Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build
 ---
 
 
-##### my notes:
+## my notes:
 
 ### todo:
 * responsiveness (about, poll, nav)
 * code revision and clean up
 
 ### maybe todo:
-* users can only vote once per poll (isAuth => voters.push(username))
+* users can only vote once per poll (isAuth => voters.push(username)) oder (req.headers)
 * bug: /newpoll input.answers delete
 * redesign /poll?
 * maybe render chart after vote?

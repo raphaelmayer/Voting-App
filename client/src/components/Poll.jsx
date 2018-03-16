@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Chart from './Chart';
 import './Poll.css';
 
@@ -61,11 +60,11 @@ class Poll extends Component {
 
   render() {
     const { poll } = this.state
-    const votesum = poll.votes.reduce((pv, cv) => pv+cv, 0)
+    //const votesum = poll.votes.reduce((pv, cv) => pv+cv, 0)
     const name = poll.creator.split(" ")
     const date = poll.created.slice(0, 19).split("T")
-    const Choices = poll.answers.map(x => {
-                                return  <div className="choice">
+    const Choices = poll.answers.map((x, i) => {
+                                return  <div className="choice" key={i}>
                                           <label><input type="radio" name="choice"/>{x}</label>
                                         </div>
                               });
