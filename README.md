@@ -7,7 +7,7 @@ This app was built with **React.js** on the front-end, **Express.js** on the bac
 *Authentication via Facebook only for now.*
 *The Login does not work on mobile browsers. I am looking into it.*
 
-You can view the live demo here: *youvote.glitch.me*
+You can view the live demo here: *https://youvote.glitch.me*
 
 ### User Stories:
 * As an authenticated user, I can keep my polls and come back later to access them.
