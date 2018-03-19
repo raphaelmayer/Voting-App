@@ -13,7 +13,7 @@ class MyPolls extends Component {
 
   componentWillMount() {
     if(this.props.authData.fbId) {
-      fetch('/mypolls/' + this.props.authData.fbId) //
+      fetch('https://youvote-api.glitch.me/mypolls/' + this.props.authData.fbId) //
         .then(res => res.json())
         .then(mypolls => this.setState({mypolls}, () => console.log('My polls fetched...', mypolls)));
     }  
@@ -39,12 +39,14 @@ class MyPolls extends Component {
           arr.splice(i, 1)
           this.setState(arr)                          //set new state
   
-          fetch('/delete', {                          //remove poll from db
+          fetch('https://youvote-api.glitch.me/delete', {                          //remove poll from db
             method: 'POST',
             headers: {
-              'Accept': 'application/json',
+              'Access-Control-Allow-Origin': 'https://youvote-api.glitch.me',
+              'Access-Control-Allow-Methods': 'GET, POST',
               'Content-Type': 'application/json',
             },
+            mode: 'cors',
             body: JSON.stringify({pollId: pollId})
           })        
         }// else alert("Error! You do not seem to be the creator of this poll!")
@@ -67,7 +69,7 @@ class MyPolls extends Component {
         )
 
     {if(!this.props.authData.isAuth) {
-      return (<h1 className="main">You need to be logged in to view this page!</h1>)
+      return (<h1 className="container">You need to be logged in to view this page!</h1>)
     }}
 
     return (

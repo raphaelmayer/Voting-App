@@ -22,7 +22,7 @@ class Start extends Component {
     let input = event.target[0].value
     //console.log(input)
     this.setState({searchTerm: input})
-    fetch("/search/" + input)        
+    fetch("https://youvote-api.glitch.me/search/" + input)        
         .then(res => res.json())
         .then(polls => this.setState({polls}, () => {
           console.log('Polls fetched . . .', polls);

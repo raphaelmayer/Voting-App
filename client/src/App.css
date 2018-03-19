@@ -11,7 +11,7 @@ nav {
   }
   .logo {
     color: lightblue;
-    font-family: 'raleway';
+    font-family: 'raleway', sans-serif;
     font-size: 40px;
     font-weight: 900;
     margin: 18px 2vw;
@@ -33,11 +33,10 @@ nav {
       border-radius: 6px;
       color: white;
       display: inline;
-      float: right;
-      font-size: 16px;
-      margin: 18px 30px;
+      font-size: 15px;
+      margin: 23px 1vw;
       opacity: 0.9;
-      padding: 7px 10px;
+      padding: 5px 8px;
       transition: all 0.3s ease;
     }
     .login-button:hover {
@@ -46,13 +45,12 @@ nav {
       opacity: 1;
     }
     .fa-facebook-square {
-      font-size: 26px;
+      font-size: 20px;
       margin-right: 14px;
       float: left;
     }
     .fb-button-text {
       display: inline;
-      float: right;
       margin: 2px 0px;
     }
     .welcome {
@@ -82,7 +80,7 @@ nav {
       border-left: 2px solid #eee;
       color: #666;
       display: inline;
-      font-family: raleway;
+      font-family: raleway, sans-serif;
       font-size: 16px;
       letter-spacing: 2px;
       margin: auto 0;
@@ -96,7 +94,8 @@ nav {
     }
 
 .nav-button {
-  color: black;
+  color: #333;
+  cursor: pointer;
   display: none;
   float: right;
   font-size: 30px;
@@ -106,31 +105,26 @@ nav {
   transition: all 0.3s ease;
 }
 .nav-button:hover {
-  color: red;
-}
-@media (max-width: 900px) {
-  .nav-button {
-    display: inline;
-  }
+
 }
 .mobile-navbar {
-  background: rgb(60, 60, 60, 0.9);
+  background: radial-gradient(rgb(250, 250, 250, 1), rgb(240, 240, 240, 1));
   border-radius: 2px;
-  box-shadow: inset 0px 0px 10px 3px #222;
+  box-shadow: inset 0px 0px 5px 1px #222;
   isplay: none;
-  padding-bottom: 20px;
-  padding-top: 100px;
+  font-size: 18px;
+  padding: 50px 2px 12px 2px;
   position: absolute;
   right: 0;
   width: 40%;
+  min-width: 200px;
   z-index: 1;
+  transition: all 0.3s ease;
 }
 .mobile-nav-button {
-  border-top: 1px solid white;
-  box-shadow: 0px 0px 10px 1px #444;
-  color: white;
+  border-bottom: 1px solid orange;
   display: inline-flex;
-  font-family: 'raleway';
+  font-family: 'raleway', sans-serif;
   letter-spacing: 3px;
   padding: 4px 10px;
   width: 80%;
@@ -139,10 +133,28 @@ nav {
 .mobile-nav-button:hover {
   color: orange;
 }
+.mobile-login-button {
+  background: #3b5998;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  display: table;
+  font-size: 15px;
+  margin: 20px 2px 0px 10px;
+  opacity: 0.9;
+  padding: 3px 8px;
+  transition: all 0.3s ease;
+}
+.mobile-login-button:hover {
+  background: #3b5998;
+  order: 2px solid white;
+  opacity: 1;
+  text-shadow: 0px 0px 1px silver;
+}
 .tbd {
   background: linear-gradient(#667, #323);
   color: rgb(255, 255, 255, 0.9);;
-  font-family: lato;
+  font-family: lato, sans-serif;
   font-size: 1.2em;
   letter-spacing: 1px;
   padding: 6px 0px;
@@ -160,8 +172,8 @@ nav {
 
 .main {
   background: linear-gradient(rgb(255, 255, 245, 1), white);
-  min-height: 687px;  /*mit header(guide): 570px;*/
-  padding-top: 8vh;
+  min-height: 63vh;  /*mit header(guide): 570px;*/
+  padding: 8vh 0;
   position: relative;
 }
 
@@ -179,7 +191,7 @@ a:hover .fa-github {
   color: rgb(235, 89, 255)
 }
 h1 {
-  font-family: raleway;
+  font-family: raleway, sans-serif;
   margin: 0;
   padding: 15px;
 }
@@ -187,7 +199,7 @@ h1 {
   background: white;
   border: 1px solid lightblue;
   border-radius: 4px;
-  font-family: raleway;
+  font-family: raleway, sans-serif;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -256,12 +268,18 @@ h3 {
   .nav-ul {
     display: none;
   }
+  .nav-button {
+    display: inline;
+  }
+  .login-button {
+    display: none;
+  }
   .tbd {
     font-size: 1em;
   }
 }
 @media (max-width: 620px) {
-  .welcome {
+  .welcome-main {
     display: none;
   }
 }

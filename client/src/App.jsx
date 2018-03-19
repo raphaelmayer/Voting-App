@@ -43,10 +43,7 @@ class App extends Component {
       this.setState({toggleNav: false})
     } else {
       this.setState({toggleNav: true})
-      //document.getElementById("mobile-navbar").setAttribute("style", "display: inline;");
-
     }
-
   }
 
   render() {
@@ -60,7 +57,7 @@ class App extends Component {
 
                 <div>
                   <FacebookLoginButton onLogin={this.onFacebookLogin} isAuth={this.state.isAuth} username={this.state.username}>
-                    <button className="login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text">Continue with Facebook</div></button>
+                    <button className="login-button welcome-main"><i className="fab fa-facebook-square"></i><div className="fb-button-text">Continue with Facebook</div></button>
                   </FacebookLoginButton>
                 </div>
 
@@ -81,6 +78,9 @@ class App extends Component {
           <Link className="mobile-nav-button" to="/explore">Explore</Link>
           <Link className="mobile-nav-button" to="/my">My Polls</Link>
           <Link className="mobile-nav-button" to="/about">About</Link>
+                  <FacebookLoginButton onLogin={this.onFacebookLogin} isAuth={this.state.isAuth} username={this.state.username}>
+                    <button className="mobile-login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text">Continue</div></button>
+                  </FacebookLoginButton>
         </div>
       )
     }

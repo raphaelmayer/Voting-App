@@ -70,6 +70,9 @@
 	right: 3%;
 	font-style: oblique;
 }
+h1.container {
+	padding-top: 8vh;
+}
 
 @media (max-width: 767px) {
 	.polls {

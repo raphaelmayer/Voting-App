@@ -24,7 +24,7 @@ module.exports = (app, db) => {
 		doc.voters = [];
 
 		let j = doc.answers.length;
-		for(i=0;i<j;i++) {
+		for(let i=0;i<j;i++) {
 			doc.votes.push(0)
 		}
 		
@@ -78,6 +78,7 @@ module.exports = (app, db) => {
 
 //=============================  /explore  ====================================
 	app.get('/explore', (req, res) => {
+		console.log("/explore")
 		let arr = []
 		db.collection("polls").find().sort({sumVotes:-1}).limit(5).toArray((err, result) => {
 			arr[0] = result;

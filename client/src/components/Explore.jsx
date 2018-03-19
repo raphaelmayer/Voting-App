@@ -11,8 +11,9 @@ class Explore extends Component {
 	}
 
   	componentWillMount() {
-      	fetch('/explore/') //
+      	fetch('https://youvote-api.glitch.me/explore') //
         	.then(res => res.json())
+        	.catch(err => console.error(err))
         	.then(polls => this.setState({polls}, () => console.log('Polls fetched...', polls)));
   	}
 

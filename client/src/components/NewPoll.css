@@ -9,9 +9,10 @@ input.question, input.answer {
 	margin: 10px 0px;
 	padding: 8px 30px;
 	text-align: center;
+	min-width: 300px;
 	width: 20%;
 }
-.answers {
+.placeH {
 	margin: 10px;
 }
 .answerBox {
@@ -23,6 +24,7 @@ input.question, input.answer {
 	display: inline;
 	margin: 1px;
 	padding: 8px 20px;
+	min-width: 200px;
 	width: 10%;
 }
 .answer:hover {

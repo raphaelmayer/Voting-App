@@ -76,12 +76,14 @@ componentDidMount() {
       }
       console.log(arr);
 
-      fetch("/newpolls", {
+      fetch("https://youvote-api.glitch.me/newpolls", {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': 'https://youvote-api.glitch.me',
+          'Access-Control-Allow-Methods': 'GET, POST',
           'Content-Type': 'application/json',
         },
+        mode: 'cors',
         body: JSON.stringify({
           creator: this.props.authData.username,
           fbId: this.props.authData.fbId,

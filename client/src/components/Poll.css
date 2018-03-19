@@ -1,8 +1,8 @@
 .center-container {
-	box-shadow: 0px 0px 10px 1px #999;
+	box-shadow: 0px 0px 10px 1px silver;
 	background: #d8ecf3;
 	display: inline-flex;
-	margin: 10px auto;
+	margin: 20px auto;
 	padding: 16px;
 	position: relative;
 	width: 900px;
@@ -11,13 +11,19 @@
 	width: 49%;
 }
 .choice {
-	border-radius: 4px;
 	background: white;
-	border-bottom: 1px solid #eee;
+	border: 1px solid #eee9de;
+	border-radius: 4px;
+	order-bottom: 1px solid #eee;
 	display: table;
 	letter-spacing: 1px;
+	margin: 0 auto;
 	padding: 5px;
 	width: 92%;
+	transition: all 0.3s ease-out;
+}
+.choice:hover {
+	border: 1px solid lightblue;
 }
 .chartContainer {
 	position: relative;
@@ -27,9 +33,9 @@
 }
 .desc {
 	border-radius: 2px;
-	box-shadow: 0px 0px 10px 1px #999;
+	box-shadow: 0px 0px 10px 1px silver;
 	background: #d8ecf3;
-	margin: 10px auto;
+	margin: 0px auto;
 	padding: 5px 5px;
 	position: relative;
 	text-align: center;
@@ -39,16 +45,28 @@
 	background: white;
 	border: 1px solid #555;
 	border-radius: 2px;
-	display: inline-block;
+	display: inline-flex;
 	margin: 5px;
 	padding: 2px 6px;
 }
 
 @media (max-width: 767px) {
 	.center-container {
-		width: 90%;
+		display: inline-block;
+		padding: 5px;
+		width: 88%;
+	}
+	.choices {
+		width: 100%;
+	}
+	.chartContainer {
+		border-top: 1px solid white;
+		margin-top: 9px;
+		padding-top: 5px;
+		width: 100%;
 	}
 	.desc {
+		font-size: 14px;
 		width: 88%;
 	}
 }

@@ -43,9 +43,11 @@ class FacebookLogin extends Component {
         fetch("/facebookAuth", {
           method: 'POST',
           headers: {
-            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': 'https://youvote-api.glitch.me',
+            'Access-Control-Allow-Methods': 'GET, POST',
             'Content-Type': 'application/json',
           },
+          mode: 'cors',
           body: JSON.stringify({
             userData
           })

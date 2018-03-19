@@ -17,7 +17,7 @@ class Poll extends Component {
 
   componentWillMount() {
     let id = this.props.location.pathname.slice(6);   //window.location.href
-    fetch('/poll/' + id)
+    fetch('https://youvote-api.glitch.me/poll/' + id)
       .then(res => res.json())
       .then(poll => this.setState({poll}, () => {
         console.log('Poll fetched...', poll);
@@ -36,7 +36,8 @@ class Poll extends Component {
     } else alert("You need to be logged in to perform this action!")
   };
 
-  handleSubmit(event) {
+  handleSubmit(event) { // => votes dont update
+    event.preventDefault();
     const poll = this.state.poll;
     
     for(let i=0;i<event.target.length;i++) {
@@ -46,14 +47,18 @@ class Poll extends Component {
         this.setState(this.state.poll.votes: poll.votes)
 
 //console.log(this.state.poll)
-        fetch("/vote", {
+        fetch("https://youvote-api.glitch.me/vote", {
           method: 'POST',
-          headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
           body: JSON.stringify(this.state.poll),
-        })
+          headers: {
+            'Access-Control-Allow-Origin': 'https://youvote-api.glitch.me',
+            'Access-Control-Allow-Methods': 'GET, POST',
+            'Content-Type': 'application/json',
+          },
+          mode: 'cors',
+        }).then(res => res.json())
+          .catch(error => console.error('Error:', error))
+          .then(response => console.log('Success:', response));
       }
     }
   };

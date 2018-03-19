@@ -5,8 +5,9 @@ A React App that allows users to view polls, create polls, and vote on them.
 This app was built with **React.js** on the front-end, **Express.js** on the back-end and a **MongoDB** database. 
 
 *Authentication via Facebook only for now.*
+*The Login does not work on mobile browsers. I am looking into it.*
 
-You can view the live demo here: *to be determined*
+You can view the live demo here: *youvote.glitch.me*
 
 ### User Stories:
 * As an authenticated user, I can keep my polls and come back later to access them.
@@ -30,10 +31,6 @@ Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build
 
 ## my notes:
 
-### todo:
-* responsiveness (about, poll, nav)
-* code revision and clean up
-
 ### maybe todo:
 * users can only vote once per poll (isAuth => voters.push(username)) oder (req.headers)
 * bug: /newpoll input.answers delete
@@ -44,13 +41,7 @@ Link to the freecodecamp project - https://www.freecodecamp.com/challenges/build
 * get user email from facebook
 * mongodb .find() projection
 * add delete function to /poll
-* comment feature
-* 
+* comment feature 
 * basic SEO
 * chart colors if poll.answers > 12
 * /poll convert displayed time to eg. two days ago, one month ago, etc.
-
-### done:
-* bug: /mypolls on delete alert() => removed alert message
-* bug: logout-button => moved logic to child component, kinda meh
-
