@@ -11,7 +11,6 @@
 .search-bar-form {
 	border-right: 1px solid #eee;
 	display: inline-flex;
-	ox-shadow: 0px 0px 4px 1px silver;
 	margin-right: 4px;
 	padding: 0px 4px;
 }
@@ -26,9 +25,7 @@
 }
 
 .search-results-container {
-	ackground: white;
 	border-top: 1px solid #eee;
-	ox-shadow: 0px 0px 6px 1px #eee;
 	display: none;
 	margin: 80px auto;
 	padding: 20px 0 40px 0;

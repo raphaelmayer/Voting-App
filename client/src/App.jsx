@@ -57,16 +57,14 @@ class App extends Component {
 
                 <div>
                   <FacebookLoginButton onLogin={this.onFacebookLogin} isAuth={this.state.isAuth} username={this.state.username}>
-                    <button className="login-button welcome-main"><i className="fab fa-facebook-square"></i><div className="fb-button-text">Continue with Facebook</div></button>
+                    <button className="login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text welcome-main">Continue with Facebook</div></button>
                   </FacebookLoginButton>
                 </div>
 
             <ul className="nav-ul"><Link to="/"><li className="nav-li">Home</li></Link><Link to="/explore"><li className="nav-li">Explore</li></Link><Link to="/my"><li className="nav-li">My Polls</li></Link><Link to="/about"><li className="nav-li">About</li></Link></ul>
-            <div onClick={this.handleNavButton}><i className="fas fa-bars nav-button"></i></div>
+            <MobileNavBar />
+            
           </div>
-
-          { this.state.toggleNav ? <MobileNavBar /> : null }
-
         </nav>
         )
     }
@@ -74,13 +72,10 @@ class App extends Component {
     const MobileNavBar = () => {
       return (
         <div className="mobile-navbar" id="mobile-navbar">
-          <Link className="mobile-nav-button" to="/">Home</Link>
-          <Link className="mobile-nav-button" to="/explore">Explore</Link>
-          <Link className="mobile-nav-button" to="/my">My Polls</Link>
-          <Link className="mobile-nav-button" to="/about">About</Link>
-                  <FacebookLoginButton onLogin={this.onFacebookLogin} isAuth={this.state.isAuth} username={this.state.username}>
-                    <button className="mobile-login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text">Continue</div></button>
-                  </FacebookLoginButton>
+          <Link className="mobile-nav-button" to="/"><i className="far fa-edit"></i></Link>
+          <Link className="mobile-nav-button" to="/my"><i className="far fa-user"></i></Link>
+          <Link className="mobile-nav-button" to="/explore"><i className="fas fa-fire"></i></Link>
+          <Link className="mobile-nav-button" to="/about"><i className="far fa-comment-alt"></i></Link>
         </div>
       )
     }
@@ -100,6 +95,7 @@ class App extends Component {
         <div className="App">
           
           <NavBar />
+          
       
           {/*<div className="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>*/}
       

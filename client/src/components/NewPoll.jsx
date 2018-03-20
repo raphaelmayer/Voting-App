@@ -9,10 +9,6 @@ class NewPoll extends Component {
       question: "",
       placeH: [ "red", "blue", "yellow", "green" ],
       answers: [ "red", "blue", "yellow", "green" ],
-      /*answer1: "red", 
-      answer2: "blue", 
-      answer3: "yellow",
-      answer4: "green"*/
     }
 
     this.handleAddAnswer = this.handleAddAnswer.bind(this)
@@ -27,6 +23,7 @@ class NewPoll extends Component {
       placeH: [...this.state.placeH, " . . . "]
     })
   }
+  
   handleDelete(event) {
     let i = event.target.name;
     console.log("I: " + i)
@@ -36,6 +33,7 @@ class NewPoll extends Component {
     this.setState({placeH: arr});
     console.log(this.state.answers)
   }
+  
   handleChange(event) { //not in use for now
     let i = event.target.attributes.name.value;
     console.log("i: " + i)
@@ -49,19 +47,6 @@ class NewPoll extends Component {
     })
   }
 
-componentDidMount() {
-  console.log(this.props.authData)
-}
-/*
-  createAnswers(event, arr) {
-    var i = event.target.length -4
-    for( let j = 1; j <= i; j++ ) {
-        console.log((i-(i-j)));
-        arr.push(event.target[(i-(i-j))].value)
-        j++;
-      }
-  }
-*/
   handleSubmit(event) {
     event.preventDefault();
     if(!this.props.authData.fbId) {alert("You need to be logged in to submit new polls!")}

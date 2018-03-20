@@ -40,7 +40,7 @@ class Explore extends Component {
 				<h1 className="">Explore</h1>
 				
 				<div className="polls">	
-					<Polls index={0} title={"hot right now"} cL={"fas fa-fire"} />
+					<Polls index={0} title={"hot right now"} cL={"fas fa-fire orange"} />
 					<Polls index={1} title={"recently asked"} cL={"far fa-clock"} />
 				</div>
 
