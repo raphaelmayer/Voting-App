@@ -36,8 +36,8 @@ class Poll extends Component {
     } else alert("You need to be logged in to perform this action!")
   };
 
-  handleSubmit(event) { // => votes dont update
-    event.preventDefault();
+  handleSubmit(event) { 
+    //if(IPinDB) {alert("You already voted on this poll!")}
     const poll = this.state.poll;
     
     for(let i=0;i<event.target.length;i++) {

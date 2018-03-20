@@ -4,7 +4,7 @@
 }
 
 nav {
-  height: 76px;
+  height: 80px;
   }
   .faLogo {
     color: orange;
@@ -114,7 +114,7 @@ nav {
   display: none;
   font-size: 20px;
   float: right;
-  margin: 0;
+  margin: 2px 0;
   margin-left: 2vh;
   z-index: 4;
   transition: all 0.3s ease;
@@ -287,11 +287,14 @@ h3 {
   }
 }
 @media (max-width: 530px) {
-  .welcome {
+  .welcome-main {
     display: none;
   }
-    .login-button {
+  .login-button {
     margin: 27px 1vw;
     padding: 3px 4px;
+  }
+  .login-button:hover {
+    box-shadow: 0px 0px 10px 1px silver;
   }
 }
