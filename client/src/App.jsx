@@ -57,7 +57,7 @@ class App extends Component {
 
                 <div>
                   <FacebookLoginButton onLogin={this.onFacebookLogin} isAuth={this.state.isAuth} username={this.state.username}>
-                    <button className="login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text welcome-main">Continue with Facebook</div></button>
+                    <button className="login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text welcome-main">Continue with facebook</div></button>
                   </FacebookLoginButton>
                 </div>
 

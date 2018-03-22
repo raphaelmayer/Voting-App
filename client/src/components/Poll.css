@@ -5,6 +5,7 @@
 	margin: 20px auto;
 	padding: 16px;
 	position: relative;
+	width: 88%;
 	max-width: 900px;
 }
 .choices {
@@ -39,7 +40,8 @@
 	padding: 5px 5px;
 	position: relative;
 	text-align: center;
-	width: 900px;
+	width: 88%;
+	max-width: 900px;
 }
 .poll-link {
 	background: white;
@@ -55,7 +57,7 @@
 	.center-container {
 		display: inline-block;
 		padding: 5px;
-		width: 88%;
+		idth: 88%;
 	}
 	.choices {
 		width: 100%;
@@ -68,6 +70,6 @@
 	}
 	.desc {
 		font-size: 14px;
-		width: 88%;
+		idth: 88%;
 	}
 }

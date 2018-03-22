@@ -5,6 +5,7 @@
 
 nav {
   height: 80px;
+  position: relative;
   }
   .faLogo {
     color: orange;
@@ -38,7 +39,7 @@ nav {
       position: relative;
       opacity: 0.9;
       padding: 5px 8px;
-      z-index: 20;
+      z-index: 4;
       transition: all 0.3s ease;
     }
     .login-button:hover {
@@ -55,9 +56,12 @@ nav {
       display: inline;
       margin: 2px 0px;
     }
+    .welcome-box {
+      margin: 30px 0;
+    }
     .welcome {
+      display: inline;
       font-size: 1em;
-      margin: 30px 1px;
     }
     .logout-button {
       background: #3b5998;
@@ -109,29 +113,32 @@ nav {
 .nav-button:hover {
 
 }
+
 .mobile-navbar {
   background: none;
+  box-shadow: 0px 0px 10px 1px silver;
   display: none;
   font-size: 20px;
-  float: right;
-  margin: 2px 0;
-  margin-left: 2vh;
-  z-index: 4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
   transition: all 0.3s ease;
-  width: 82px;
+  width: 100%;
 }
 .mobile-nav-button {
-  background: rgb(200, 200, 200, 0.2);
+  background: rgb(220, 220, 220, 0.9);
   border-bottom: 1px solid orange;
   color: #333;
   display: inline-block;
-  margin: 0.5px;
-  padding: 4px 0px;
+  margin: 0.1%;
+  padding: 14px 0px;
   transition: all 0.3s ease;
-  width: 40px;
+  width: 24.8%;
 }
 .mobile-nav-button:hover {
-  background: rgb(200, 200, 200, 0.4);
+  background: rgb(60, 60, 60, 0.95);
   color: orange;
 }
 .mobile-login-button {
@@ -262,11 +269,15 @@ h3 {
 }
 
 @media (max-width: 900px) {
-  .logo {
-
+  nav {
+    height: 60px;
+    margin-top: 56px;
   }
-  .welcome {
-    font-size: 1em;
+  .logo {
+    margin: 8px 2vw;
+  }
+  .welcome-box {
+    margin: 18px 1vw;
   }
   .nav-ul {
     display: none;
@@ -274,9 +285,12 @@ h3 {
   .mobile-navbar {
     display: inline;
   }
-
+  .login-button {
+    margin: 17px 2vw;
+    padding: 3px 4px;
+  }
   .fa-facebook-square {
-    margin: 0;
+    margin-right: 4px;
   }
   .tbd {
     font-size: 1em;
@@ -287,12 +301,9 @@ h3 {
   }
 }
 @media (max-width: 530px) {
-  .welcome-main {
+  
+  .welcome {
     display: none;
-  }
-  .login-button {
-    margin: 27px 1vw;
-    padding: 3px 4px;
   }
   .login-button:hover {
     box-shadow: 0px 0px 10px 1px silver;
