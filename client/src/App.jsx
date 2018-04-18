@@ -73,8 +73,8 @@ class App extends Component {
       return (
         <div className="mobile-navbar" id="mobile-navbar">
           <Link className="mobile-nav-button" to="/"><i className="far fa-edit"></i></Link>
-          <Link className="mobile-nav-button" to="/my"><i className="far fa-user"></i></Link>
           <Link className="mobile-nav-button" to="/explore"><i className="fas fa-fire"></i></Link>
+          <Link className="mobile-nav-button" to="/my"><i className="far fa-user"></i></Link>
           <Link className="mobile-nav-button" to="/about"><i className="far fa-comment-alt"></i></Link>
         </div>
       )

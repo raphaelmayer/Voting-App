@@ -5,7 +5,6 @@ A React App that allows users to view polls, create polls, and vote on them.
 This app was built with **React.js** on the front-end, **Express.js** on the back-end and a **MongoDB** database. 
 
 *Authentication via Facebook only for now.*
-*The Login does not work on mobile browsers. I am looking into it.*
 
 You can view the live demo here: *https://youvote.glitch.me*
 
