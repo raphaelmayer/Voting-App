@@ -75,7 +75,7 @@ class Poll extends Component {
     const Description = () => {
       return (
         <div className="desc">
-          <strong>Link:</strong><div className="poll-link"> {"https://youvote.glitch.me/poll/" + poll._id}</div> 
+          <strong>Link:</strong><div className="poll-link"> {"https://raphaelmayer.github.io/youvote/poll/" + poll._id}</div> 
           <br/>
           <strong>Asked by {name[0]}</strong> on {date[0]} -- {date[1]}
           <br/>

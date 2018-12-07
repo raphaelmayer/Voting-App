@@ -18,7 +18,7 @@
     "deploy": "gh-pages -d build"
   },
   "proxy": "https://youvote-api.glitch.me",
-  "homepage": "http://raphaelmayer.github.io/Voting-App",
+  "homepage": "http://raphaelmayer.github.io/youvote",
   "devDependencies": {
     "gh-pages": "^2.0.1"
   }
