@@ -10,11 +10,14 @@ class Explore extends Component {
 		}
 	}
 
-  	componentWillMount() {
-      	fetch('https://youvote-api.glitch.me/explore') //
+  	componentDidMount() {
+      	fetch('https://youvote.glitch.me/explore') // https://youvote-api.glitch.me
         	.then(res => res.json())
         	.catch(err => console.error(err))
-        	.then(polls => this.setState({polls}, () => console.log('Polls fetched...', polls)));
+        	.then(polls => {
+        		this.setState({polls});
+        		console.log('Polls fetched...', polls);
+        	});
   	}
 
 	render() {
@@ -22,7 +25,7 @@ class Explore extends Component {
 			return (
 				<div className="split">
 					<h3 className=""><i className={props.cL}></i> {props.title}</h3>
-					{this.state.polls[props.index].map((polls, i) => 
+					{this.state.polls && this.state.polls[props.index].map((polls, i) => 
             	  		<Link to={"./poll/" + polls._id} key={i}>
             	  			<div className="search-results-box">
             	    			<div className="search-results-question">{polls.question} 

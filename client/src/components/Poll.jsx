@@ -15,7 +15,7 @@ class Poll extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   };
 
-  componentWillMount() {
+  componentDidMount() {
     let id = this.props.location.pathname.slice(6);   //window.location.href
     fetch('https://youvote-api.glitch.me/poll/' + id)
       .then(res => res.json())
@@ -51,8 +51,6 @@ class Poll extends Component {
           method: 'POST',
           body: JSON.stringify(this.state.poll),
           headers: {
-            'Access-Control-Allow-Origin': 'https://youvote-api.glitch.me',
-            'Access-Control-Allow-Methods': 'GET, POST',
             'Content-Type': 'application/json',
           },
           mode: 'cors',

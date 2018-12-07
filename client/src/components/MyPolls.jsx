@@ -42,8 +42,6 @@ class MyPolls extends Component {
           fetch('https://youvote-api.glitch.me/delete', {                          //remove poll from db
             method: 'POST',
             headers: {
-              'Access-Control-Allow-Origin': 'https://youvote-api.glitch.me',
-              'Access-Control-Allow-Methods': 'GET, POST',
               'Content-Type': 'application/json',
             },
             mode: 'cors',
