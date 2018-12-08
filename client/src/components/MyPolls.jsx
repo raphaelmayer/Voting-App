@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './MyPolls.css';
+import './css/MyPolls.css';
+
+import PollBox from "./PollBox";
 
 class MyPolls extends Component {
   constructor() {
     super();
     this.state = {
-      mypolls: []
+      polls: []
     };
-    this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillMount() {
     if(this.props.authData.fbId) {
       fetch('https://youvote-api.glitch.me/mypolls/' + this.props.authData.fbId) //
         .then(res => res.json())
-        .then(mypolls => this.setState({mypolls}, () => console.log('My polls fetched...', mypolls)));
+        .then(polls => this.setState({polls}, () => console.log('My polls fetched...', polls)));
     }  
   }
 
@@ -23,19 +25,22 @@ class MyPolls extends Component {
     if(this.props.authData !== nextProps.authData) {
       fetch('/mypolls/' + nextProps.authData.fbId) //
         .then(res => res.json())
-        .then(mypolls => this.setState({mypolls}, () => console.log('My polls fetched...', mypolls)));
+        .then(polls => this.setState({polls}, () => console.log('My polls fetched...', polls)));
     }       
   }
 
 
   handleDelete(event) {
-    event.preventDefault()
+    event.preventDefault();
+    const { polls } = this.state;
+    const { authData } = this.props;
+
     if (window.confirm("Are you sure you want to delete this poll?")) {
       let pollId = event.target.parentElement.parentElement.attributes.href.nodeValue.slice(7)
   
-      for(let i=0;i<this.state.mypolls.length;i++) {  //to remove poll from state
-        if(this.state.mypolls[i]._id === pollId && this.props.authData.isAuth && this.props.authData.fbId === this.state.mypolls[i].fbId) {    //find poll in state
-          let arr = this.state.mypolls
+      for(let i=0; i<polls.length; i++) {  //to remove poll from state
+        if(polls[i]._id === pollId && this.props.authData.isAuth && this.props.authData.fbId === polls[i].fbId) {    //find poll in state
+          let arr = polls
           arr.splice(i, 1)
           this.setState(arr)                          //set new state
   
@@ -54,17 +59,7 @@ class MyPolls extends Component {
   }
     
   render() {
-    const polls = this.state.mypolls.map((mypolls, i) => //check key
-          <Link to={"./poll/" + mypolls._id} key={i}>
-            <div className="search-results-box">
-              <div className="search-results-question">{mypolls.question} 
-                <div className="search-results-votes">{mypolls.votes.reduce((pv, cv) => pv+cv, 0)}</div>
-              </div>
-              <div className="search-results-creator">Asked by {mypolls.creator.split(" ")[0]}</div>
-              <button className="delete2" onClick={this.handleDelete} key={mypolls.id}>X</button>
-            </div>
-          </Link>
-        )
+    const { polls } = this.state;
 
     {if(!this.props.authData.isAuth) {
       return (<h1 className="container">You need to be logged in to view this page!</h1>)
@@ -75,7 +70,7 @@ class MyPolls extends Component {
         <h1>My Polls</h1>
 
         <div className="polls">
-          {polls}
+          { polls.map((poll, i) => <PollBox poll={ poll } handleDelete={ this.handleDelete } key={i} />) }
         </div>
         
         <Link to="/new" className="btn">New Poll</Link>

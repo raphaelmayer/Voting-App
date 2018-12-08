@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NewPoll.css';
+import './css/NewPoll.css';
 
 
 class NewPoll extends Component {

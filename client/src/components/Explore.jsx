@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Explore.css';
+import './css/Explore.css';
+
+import PollBox from "./PollBox";
 
 class Explore extends Component {
 	constructor() {
@@ -15,41 +17,35 @@ class Explore extends Component {
         	.then(res => res.json())
         	.catch(err => console.error(err))
         	.then(polls => {
-        		this.setState({polls});
+        		this.setState({ polls });
         		console.log('Polls fetched...', polls);
         	});
   	}
 
 	render() {
-		const Polls = props => {
-			return (
-				<div className="split">
-					<h3 className=""><i className={props.cL}></i> {props.title}</h3>
-					{this.state.polls && this.state.polls[props.index].map((polls, i) => 
-            	  		<Link to={"./poll/" + polls._id} key={i}>
-            	  			<div className="search-results-box">
-            	    			<div className="search-results-question">{polls.question} 
-            	      				<div className="search-results-votes">{polls.votes.reduce((pv, cv) => pv+cv, 0)}</div>
-            	    			</div>
-            	    			<div className="search-results-creator">Asked by {polls.creator.split(" ")[0]}</div>
-            	  			</div>
-            	  		</Link>
-            		)}
-            	</div>
-			)};
-			
+		const { polls } = this.state;
 		return(
 			<div className="container">
 				<h1 className="">Explore</h1>
 				
 				<div className="polls">	
-					<Polls index={0} title={"hot right now"} cL={"fas fa-fire orange"} />
-					<Polls index={1} title={"recently asked"} cL={"far fa-clock"} />
+					<Container polls={ polls[0] } title={ "hot right now" } icon={ "fas fa-fire orange" } />
+					<Container polls={ polls[1] } title={ "recently asked" } icon={ "far fa-clock" } />
 				</div>
 
 			</div>
-			);
+		);
 	}
 }
 
 export default Explore;
+
+
+const Container = ({ icon, title, polls }) => {
+	return (
+		<div className="split">
+			<h3 className=""><i className={ icon }></i> { title }</h3>
+			{ polls.map((poll, i) => <PollBox poll={ poll } key={i} />) }
+    	</div>
+	)
+}

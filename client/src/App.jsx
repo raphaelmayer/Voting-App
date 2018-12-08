@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
-//import NavBar from './components/NavBar';
+
 import NewPoll from './components/NewPoll';
 import Start from './components/Start';
 import MyPolls from './components/MyPolls';
 import Poll from './components/Poll';
-import FacebookLoginButton from './components/FacebookLoginButton';
 import About from './components/About';
 import Explore from './components/Explore';
+
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 
 class App extends Component {
@@ -23,7 +25,7 @@ class App extends Component {
     this.handleNavButton = this.handleNavButton.bind(this)
   }
 
-  onFacebookLogin = (loginStatus, resultObject) => {
+  onFacebookLogin(loginStatus, resultObject) {
     if (loginStatus === true) {
       //console.log(resultObject)
       this.setState({
@@ -47,54 +49,13 @@ class App extends Component {
   }
 
   render() {
-    //const { username, isAuth, fbId } = this.state;
-
-    const NavBar = props => {
-      return (
-        <nav>
-          <Link to="/"><div className="logo"><i className="fas fa-chart-pie faLogo"></i>YouVote</div></Link>
-          <div className="right-side">
-
-                <div>
-                  <FacebookLoginButton onLogin={this.onFacebookLogin} isAuth={this.state.isAuth} username={this.state.username}>
-                    <button className="login-button"><i className="fab fa-facebook-square"></i><div className="fb-button-text welcome-main">Continue with facebook</div></button>
-                  </FacebookLoginButton>
-                </div>
-
-            <ul className="nav-ul"><Link to="/"><li className="nav-li">Home</li></Link><Link to="/explore"><li className="nav-li">Explore</li></Link><Link to="/my"><li className="nav-li">My Polls</li></Link><Link to="/about"><li className="nav-li">About</li></Link></ul>
-            <MobileNavBar />
-            
-          </div>
-        </nav>
-        )
-    }
-
-    const MobileNavBar = () => {
-      return (
-        <div className="mobile-navbar" id="mobile-navbar">
-          <Link className="mobile-nav-button" to="/"><i className="far fa-edit"></i></Link>
-          <Link className="mobile-nav-button" to="/explore"><i className="fas fa-fire"></i></Link>
-          <Link className="mobile-nav-button" to="/my"><i className="far fa-user"></i></Link>
-          <Link className="mobile-nav-button" to="/about"><i className="far fa-comment-alt"></i></Link>
-        </div>
-      )
-    }
-
-    const Footer = props => {
-      return (
-        <div className="footer">
-          <div>2018 - YouVote - A voting app by Raphael Mayer</div>
-          <br/>
-          <a href="http://github.com/attiimaster/voting-app" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i> YouVote on Github</a>
-        </div>
-        )
-    }
+    const { username, isAuth } = this.state;
 
     return (
       <Router>
         <div className="App">
           
-          <NavBar />
+          <NavBar isAuth={ isAuth } username={ username } onFacebookLogin={ this.onFacebookLogin } />
           
       
           {/*<div className="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>*/}
@@ -124,6 +85,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

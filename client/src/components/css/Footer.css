@@ -1,0 +1,13 @@
+.footer {
+  background: linear-gradient(#eee, silver);
+  border-top: 1px solid silver;
+  padding: 10px 20px;
+}
+  .fa-github {
+    color: purple;
+    text-shadow: 0px 0px 2px red;
+    transition: all 0.2s ease;
+  }
+a:hover .fa-github {
+  color: rgb(235, 89, 255)
+}

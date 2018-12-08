@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Chart from './Chart';
-import './Poll.css';
+import './css/Poll.css';
 
 class Poll extends Component {
   constructor() {
@@ -11,8 +11,8 @@ class Poll extends Component {
              creator: " ",
              created: " ",}
     };
-    this.handleAddAnswer = this.handleAddAnswer.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleAddAnswer = this.handleAddAnswer.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   };
 
   componentDidMount() {
@@ -29,9 +29,9 @@ class Poll extends Component {
       let input = prompt("Enter new answer . . . ")
       console.log(this.state.poll.answers)
       let obj = this.state.poll;
-      obj.answers.push(input)
-      obj.votes.push(0)
-      this.setState(obj)
+      obj.answers.push(input);
+      obj.votes.push(0);
+      this.setState(obj);
       
     } else alert("You need to be logged in to perform this action!")
   };
@@ -62,7 +62,7 @@ class Poll extends Component {
   };
 
   render() {
-    const { poll } = this.state
+    const { poll } = this.state;
     //const votesum = poll.votes.reduce((pv, cv) => pv+cv, 0)
     const name = poll.creator.split(" ")
     const date = poll.created.slice(0, 19).split("T")
